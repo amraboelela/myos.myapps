@@ -41,7 +41,7 @@
 		F575462B19CC841B000DDF29 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		F575462D19CC8848000DDF29 /* clean.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean.sh; sourceTree = "<group>"; };
-		F5EE5A831A70DDEA00EDA5E5 /* PRObj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PRObj; sourceTree = "<group>"; };
+		F5EE5A841A71B04600EDA5E5 /* native-obj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "native-obj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -72,12 +72,12 @@
 				F575461E19CC841B000DDF29 /* LoadingScreenVC.h */,
 				F575461F19CC841B000DDF29 /* LoadingScreenVC.m */,
 				F575462119CC841B000DDF29 /* Makefile */,
+				F5EE5A841A71B04600EDA5E5 /* native-obj */,
 				F575462319CC841B000DDF29 /* obj */,
 				F575462419CC841B000DDF29 /* PageView.h */,
 				F575462519CC841B000DDF29 /* PageView.m */,
 				F575462619CC841B000DDF29 /* proguard-project.txt */,
 				F575462719CC841B000DDF29 /* project.properties */,
-				F5EE5A831A70DDEA00EDA5E5 /* PRObj */,
 				F575462819CC841B000DDF29 /* rd_main.m */,
 				F575462919CC841B000DDF29 /* README.md */,
 				F575462A19CC841B000DDF29 /* res */,
