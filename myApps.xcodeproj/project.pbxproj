@@ -1,0 +1,140 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		F50CFF7919D236210020949E /* emulator.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = emulator.sh; sourceTree = "<group>"; };
+		F533FEE41A11839700627384 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		F564A68819D0D0E80069E9BB /* build.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build.sh; sourceTree = "<group>"; };
+		F575460919CC841B000DDF29 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
+		F575460A19CC841B000DDF29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F575460B19CC841B000DDF29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F575460C19CC841B000DDF29 /* ApplicationsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationsData.h; sourceTree = "<group>"; };
+		F575460D19CC841B000DDF29 /* ApplicationsData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationsData.m; sourceTree = "<group>"; };
+		F575460E19CC841B000DDF29 /* ApplicationsPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationsPage.h; sourceTree = "<group>"; };
+		F575460F19CC841B000DDF29 /* ApplicationsPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationsPage.m; sourceTree = "<group>"; };
+		F575461119CC841B000DDF29 /* build.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = build.xml; sourceTree = "<group>"; };
+		F575461219CC841B000DDF29 /* commands.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = commands.xml; sourceTree = "<group>"; };
+		F575461319CC841B000DDF29 /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		F575461419CC841B000DDF29 /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		F575461719CC841B000DDF29 /* jni */ = {isa = PBXFileReference; lastKnownFileType = folder; path = jni; sourceTree = "<group>"; };
+		F575461819CC841B000DDF29 /* LauncherVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LauncherVC.h; sourceTree = "<group>"; };
+		F575461919CC841B000DDF29 /* LauncherVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LauncherVC.m; sourceTree = "<group>"; };
+		F575461A19CC841B000DDF29 /* LauncherView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LauncherView.h; sourceTree = "<group>"; };
+		F575461B19CC841B000DDF29 /* LauncherView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LauncherView.m; sourceTree = "<group>"; };
+		F575461D19CC841B000DDF29 /* libs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libs; sourceTree = "<group>"; };
+		F575461E19CC841B000DDF29 /* LoadingScreenVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingScreenVC.h; sourceTree = "<group>"; };
+		F575461F19CC841B000DDF29 /* LoadingScreenVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingScreenVC.m; sourceTree = "<group>"; };
+		F575462119CC841B000DDF29 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		F575462319CC841B000DDF29 /* obj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = obj; sourceTree = "<group>"; };
+		F575462419CC841B000DDF29 /* PageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
+		F575462519CC841B000DDF29 /* PageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
+		F575462619CC841B000DDF29 /* proguard-project.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "proguard-project.txt"; sourceTree = "<group>"; };
+		F575462719CC841B000DDF29 /* project.properties */ = {isa = PBXFileReference; lastKnownFileType = text; path = project.properties; sourceTree = "<group>"; };
+		F575462819CC841B000DDF29 /* rd_main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rd_main.m; sourceTree = "<group>"; };
+		F575462919CC841B000DDF29 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		F575462A19CC841B000DDF29 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		F575462B19CC841B000DDF29 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
+		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		F575462D19CC8848000DDF29 /* clean.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean.sh; sourceTree = "<group>"; };
+		F5EE5A831A70DDEA00EDA5E5 /* PRObj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PRObj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		F575460219CC83F6000DDF29 = {
+			isa = PBXGroup;
+			children = (
+				F533FEE41A11839700627384 /* assets */,
+				F575460919CC841B000DDF29 /* AndroidManifest.xml */,
+				F575460A19CC841B000DDF29 /* AppDelegate.h */,
+				F575460B19CC841B000DDF29 /* AppDelegate.m */,
+				F575460C19CC841B000DDF29 /* ApplicationsData.h */,
+				F575460D19CC841B000DDF29 /* ApplicationsData.m */,
+				F575460E19CC841B000DDF29 /* ApplicationsPage.h */,
+				F575460F19CC841B000DDF29 /* ApplicationsPage.m */,
+				F564A68819D0D0E80069E9BB /* build.sh */,
+				F575461119CC841B000DDF29 /* build.xml */,
+				F575462D19CC8848000DDF29 /* clean.sh */,
+				F575461219CC841B000DDF29 /* commands.xml */,
+				F50CFF7919D236210020949E /* emulator.sh */,
+				F575461319CC841B000DDF29 /* FileManager.h */,
+				F575461419CC841B000DDF29 /* FileManager.m */,
+				F575461719CC841B000DDF29 /* jni */,
+				F575461819CC841B000DDF29 /* LauncherVC.h */,
+				F575461919CC841B000DDF29 /* LauncherVC.m */,
+				F575461A19CC841B000DDF29 /* LauncherView.h */,
+				F575461B19CC841B000DDF29 /* LauncherView.m */,
+				F575461D19CC841B000DDF29 /* libs */,
+				F575461E19CC841B000DDF29 /* LoadingScreenVC.h */,
+				F575461F19CC841B000DDF29 /* LoadingScreenVC.m */,
+				F575462119CC841B000DDF29 /* Makefile */,
+				F575462319CC841B000DDF29 /* obj */,
+				F575462419CC841B000DDF29 /* PageView.h */,
+				F575462519CC841B000DDF29 /* PageView.m */,
+				F575462619CC841B000DDF29 /* proguard-project.txt */,
+				F575462719CC841B000DDF29 /* project.properties */,
+				F5EE5A831A70DDEA00EDA5E5 /* PRObj */,
+				F575462819CC841B000DDF29 /* rd_main.m */,
+				F575462919CC841B000DDF29 /* README.md */,
+				F575462A19CC841B000DDF29 /* res */,
+				F575462B19CC841B000DDF29 /* run.sh */,
+				F575462C19CC841B000DDF29 /* src */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		F575460319CC83F6000DDF29 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = F575460619CC83F6000DDF29 /* Build configuration list for PBXProject "myApps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F575460219CC83F6000DDF29;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		F575460719CC83F6000DDF29 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		F575460819CC83F6000DDF29 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F575460619CC83F6000DDF29 /* Build configuration list for PBXProject "myApps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F575460719CC83F6000DDF29 /* Debug */,
+				F575460819CC83F6000DDF29 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F575460319CC83F6000DDF29 /* Project object */;
+}
