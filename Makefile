@@ -3,10 +3,9 @@
 #
 
 LIB_NAME=myApps
-CFLAGS=-DDEBUG -DML -fblocks
+CFLAGS=-fblocks
+#CFLAGS=-DDEBUG -DML -fblocks
 LDLIBS=-llog -landroid -lCoreFoundation -lFoundation -lNAUIKit -lNAIOKit -lNAOpenGLES
-
-#-lGLESv1_CM -lGLESv1_enc -lEGL
 
 OBJECTS = \
     rd_app_glue.o \
