@@ -16,7 +16,7 @@
  */
 
 #import "AppDelegate.h"
-#import "FileManager.h"
+//#import "FileManager.h"
 
 @implementation AppDelegate
 
@@ -36,7 +36,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    FileManagerSetupDirectories();
+    //FileManagerSetupDirectories();
     //DLog();
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     //_launcherVC = [[LauncherVC alloc] init];
@@ -71,7 +71,7 @@
     [_loadingScreenVC.view removeFromSuperview];
     [_loadingScreenVC release];
     _loadingScreenVC = nil;
-    UIMLApplicationLauncherViewDidAdded();
+    UIParentApplicationLauncherViewDidAdded();
     //DLog();
     //DLog(@"self: %@", self);
 }

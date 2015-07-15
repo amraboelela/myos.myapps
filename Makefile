@@ -1,22 +1,37 @@
 #
-# Copyright 2014 myOS Group. All rights reserved.
+# Copyright © 2015 myOS Group.
+#
+# This application is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Lesser General Public License for more details.
+#
+# Contributor(s):
+# Amr Aboelela <amraboelela@gmail.com>
 #
 
-LIB_NAME=myApps
-CFLAGS=-fblocks
-#CFLAGS=-DDEBUG -DML -fblocks
-LDLIBS=-llog -landroid -lCoreFoundation -lFoundation -lNAUIKit -lNAIOKit -lNAOpenGLES
+LDLIBS=-lFoundation
+
+ifeq ($(APP_TYPE),NativeApp)
+    LDLIBS+=-lNAOpenGLES -lNAUIKit -lNACoreGraphics -lNAQuartzCore -lNAIOKit
+else
+    LDLIBS+=-lOpenGLES -lUIKit -lCoreGraphics -lQuartzCore -IOKit
+endif
 
 OBJECTS = \
-    rd_app_glue.o \
-    rd_main.o \
     AppDelegate.o \
-    FileManager.o \
-    ApplicationsData.o \
     ApplicationsPage.o \
     LauncherVC.o \
     LauncherView.o \
     PageView.o \
     LoadingScreenVC.o \
+    FileManager.o \
+    ApplicationsData.o \
 
-include ${MYOS_PATH}/android/sdk/resources/makefile-shared
+include ${MYOS_PATH}/sdk/app-makefile
+

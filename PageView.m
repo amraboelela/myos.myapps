@@ -29,7 +29,7 @@
         _applicationsPage = applicationsPage;
         _applicationsPage->_delegate = self;
         for (NSArray *row in _applicationsPage->_applications) {
-            for (UIMAApplication *application in row) {
+            for (UIChildApplication *application in row) {
                 //DLog(@"application: %p", application);
                 if (application != [NSNull null]) {
                     //DLog(@"application: %@", application);
@@ -59,12 +59,12 @@
 
 #pragma mark - Delegates
 
-- (void)applicationWillMove:(UIMAApplication *)application
+- (void)applicationWillMove:(UIChildApplication *)application
 {
     
 }
 
-- (void)applicationDidMove:(UIMAApplication *)application
+- (void)applicationDidMove:(UIChildApplication *)application
 {
     
 }
@@ -79,3 +79,4 @@ void PageViewLoadIcons(PageView *pageView)
 {
     
 }
+

@@ -30,19 +30,19 @@ static NSString *const _kMAPageNumber = @"pageNumber";
 
 #pragma mark - Static functions
 
-static int ApplicationsDataAppFlatLocation(UIMAApplication *application)
+static int ApplicationsDataAppFlatLocation(UIChildApplication *application)
 {
     return application.pageNumber * kNumberOfAppsPerPage + application.yLocation * kNumberOfAppsPerRow +  application.xLocation;;
 }
 
-static UIMAApplication *ApplicationsDataGetCloseDownAppToFlatLocation(ApplicationsData *applicationsData, int flatLocation)
+static UIChildApplication *ApplicationsDataGetCloseDownAppToFlatLocation(ApplicationsData *applicationsData, int flatLocation)
 {
     NSSortDescriptor *pageNumberDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:NO];
     NSSortDescriptor *yLocationDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"yLocation" ascending:NO];
     NSSortDescriptor *xLocationDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"xLocation" ascending:NO];
     NSMutableArray *applications = [applicationsData->_applications sortedArrayUsingDescriptors:[NSArray arrayWithObjects:pageNumberDescriptor, yLocationDescriptor, xLocationDescriptor, nil]];
     //DLog(@"pageNumber, yLocation, xLocation sorted applications: %@", applications);
-    for (UIMAApplication *application in applications) {
+    for (UIChildApplication *application in applications) {
         if (ApplicationsDataAppFlatLocation(application) <= flatLocation) {
             return application;
         }
@@ -64,7 +64,7 @@ static int ApplicationsDataSetLocations(ApplicationsData *applicationsData)
     int minusOneIndex = -1;
     //int i;
     int flatLocation;
-    UIMAApplication *application;
+    UIChildApplication *application;
     for (int i=0; i<applicationsData->_applications.count; i++) {
         application = [applicationsData->_applications objectAtIndex:i];
         //DLog(@"application: %@", application);
@@ -83,7 +83,7 @@ static int ApplicationsDataSetLocations(ApplicationsData *applicationsData)
             application.xLocation = (currentLocation % kNumberOfAppsPerPage) % kNumberOfAppsPerRow;
             //DLog(@"set application: %@", application);
             currentLocation++;
-            UIMAApplicationSaveData(application);
+            UIChildApplicationSaveData(application);
         } else {
             minusOneIndex = i;
         }
@@ -101,7 +101,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
         //DLog(@"for (i=minusOneIndex ...");
         int flatLocation = kNumberOfAppsPerPage-1;
         //DLog(@"flatLocation: %d", flatLocation);
-        UIMAApplication *application = ApplicationsDataGetCloseDownAppToFlatLocation(applicationsData, flatLocation);
+        UIChildApplication *application = ApplicationsDataGetCloseDownAppToFlatLocation(applicationsData, flatLocation);
         //DLog(@"ApplicationsDataGetCloseDownAppToFlatLocation application: %@", application);
         int appFlatLocation = ApplicationsDataAppFlatLocation(application);
         //DLog(@"appFlatLocation: %d", appFlatLocation);
@@ -148,7 +148,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
         //DLog(@"_applications: %@", _applications);
         self.applications = [_applications sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
         //DLog(@"_applications: %@", _applications);
-        UIMAApplication *lastApplication = [_applications lastObject];
+        UIChildApplication *lastApplication = [_applications lastObject];
         int lastPageNumber = lastApplication.pageNumber;
         int numberOfPages = lastPageNumber + 1;
         //DLog(@"numberOfPages: %d", numberOfPages);

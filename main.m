@@ -15,25 +15,11 @@
  Amr Aboelela <amraboelela@gmail.com>
  */
 
-#import <UIKit/UIKit-private.h>
+#import <UIKit/UIKit.h>
 
-@interface ApplicationsPage : NSObject {
-@package
-    int _pageNumber;
-    NSArray *_applications;
-    int _numberOfApplications;
-    id _delegate;
+#pragma mark - Static functions
+
+int main(int argc, char *argv[])
+{
+    return UIApplicationMain(argc, argv, nil, @"AppDelegate");
 }
-
-- (id)initWithPageNumber:(int)pageNumber andApplications:(NSArray *)applications startIndex:(int)index;
-- (void)rearrageApplicationsWithNextPage:(ApplicationsPage *)nextPage;
-
-@end
-
-@protocol ApplicationsPageDelegate <NSObject>
-
-- (void)applicationWillMove:(UIChildApplication *)application;
-- (void)applicationDidMove:(UIChildApplication *)application;
-
-@end
-

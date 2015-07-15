@@ -39,7 +39,7 @@
                          nil];
         //DLog();
         for (int i=index; i<applications.count; i++) {
-            UIMAApplication *application = [applications objectAtIndex:i];
+            UIChildApplication *application = [applications objectAtIndex:i];
             //DLog(@"application: %@", application);
             int appPageNumber = application.pageNumber;
             //DLog(@"i: %d", i);
@@ -67,11 +67,11 @@
 
 #pragma mark - Data
 
-- (UIMAApplication *)maximumScoredApplication
+- (UIChildApplication *)maximumScoredApplication
 {
-    UIMAApplication *maxApp = nil;
+    UIChildApplication *maxApp = nil;
     for (NSArray *row in _applications) {
-        for (UIMAApplication *application in row) {
+        for (UIChildApplication *application in row) {
             if (application != [NSNull null]) {
                 if (!maxApp) {
                     maxApp = application;
@@ -84,11 +84,11 @@
     return maxApp;
 }
 
-- (UIMAApplication *)manimumScoredApplication
+- (UIChildApplication *)manimumScoredApplication
 {
-    UIMAApplication *minApp = nil;
+    UIChildApplication *minApp = nil;
     for (NSArray *row in _applications) {
-        for (UIMAApplication *application in row) {
+        for (UIChildApplication *application in row) {
             if (application != [NSNull null]) {
                 if (!minApp) {
                     minApp = application;
@@ -107,8 +107,8 @@
 
 - (void)rearrageApplicationsWithNextPage:(ApplicationsPage *)nextPage
 { 
-    UIMAApplication *myMinApp = [self maximumScoredApplication];
-    UIMAApplication *nextPageMaxApp = [nextPage maximumScoredApplication];
+    UIChildApplication *myMinApp = [self maximumScoredApplication];
+    UIChildApplication *nextPageMaxApp = [nextPage maximumScoredApplication];
     if (nextPageMaxApp->_score > myMinApp->_score) {
         [_delegate applicationWillMove:myMinApp];
         [nextPage->_delegate applicationWillMove:nextPageMaxApp];
@@ -126,3 +126,4 @@
 }
 
 @end
+

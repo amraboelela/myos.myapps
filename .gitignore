@@ -1,5 +1,7 @@
+myapps
 xcuserdata
 *.so
 bin
 gen
 local.properties
+config.sh

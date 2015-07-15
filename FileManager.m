@@ -40,11 +40,11 @@ NSMutableArray *FileManagerInstantiateApps()
     NSString *filePath = @"/data/data/com.myos.myapps/apps";
     
     NSArray *directories = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:NULL];
-    UIMAApplication *maApp;
+    UIChildApplication *maApp;
     for (NSString *directory in directories) {
         NSString *appName  = [directory stringByReplacingOccurrencesOfString:@".app" withString:@""];
         //DLog(@"appName: %@", appName);
-        maApp = [[UIMAApplication alloc] initWithAppName:appName];
+        maApp = [[UIChildApplication alloc] initWithAppName:appName];
         [apps addObject:maApp];
         [maApp release];
     }
