@@ -35,8 +35,8 @@
     self.view.frame = frame;
     //[self.view addSubview:_backgroundView];
     
-    //ApplicationsData *applicationsData = [ApplicationsData sharedData];
-    int numberOfPages = 1;//applicationsData->_applicationsPages.count;
+    ApplicationsData *applicationsData = [ApplicationsData sharedData];
+    int numberOfPages = applicationsData->_applicationsPages.count;
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
                                                                    frame.size.width, _kUIPageControlHeight)];
     _pageControl.numberOfPages = numberOfPages;

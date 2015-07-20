@@ -1,5 +1,5 @@
 /*
- Copyright © 2014 myOS Group.
+ Copyright © 2014-2015 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -16,7 +16,7 @@
  */
 
 #import "AppDelegate.h"
-//#import "FileManager.h"
+#import "FileManager.h"
 
 @implementation AppDelegate
 
@@ -36,7 +36,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //FileManagerSetupDirectories();
+    FileManagerSetupDirectories();
     //DLog();
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     //_launcherVC = [[LauncherVC alloc] init];
