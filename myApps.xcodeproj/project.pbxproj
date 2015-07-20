@@ -41,7 +41,7 @@
 		F575462B19CC841B000DDF29 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		F575462D19CC8848000DDF29 /* clean.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean.sh; sourceTree = "<group>"; };
-		F5EE5A841A71B04600EDA5E5 /* native-obj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "native-obj"; sourceTree = "<group>"; };
+		F5F5F66F1B57246400285921 /* NAObj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NAObj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -71,8 +71,8 @@
 				F575461D19CC841B000DDF29 /* libs */,
 				F575461E19CC841B000DDF29 /* LoadingScreenVC.h */,
 				F575461F19CC841B000DDF29 /* LoadingScreenVC.m */,
+				F5F5F66F1B57246400285921 /* NAObj */,
 				F575462119CC841B000DDF29 /* Makefile */,
-				F5EE5A841A71B04600EDA5E5 /* native-obj */,
 				F575462319CC841B000DDF29 /* obj */,
 				F575462419CC841B000DDF29 /* PageView.h */,
 				F575462519CC841B000DDF29 /* PageView.m */,
