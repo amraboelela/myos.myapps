@@ -1,5 +1,5 @@
 /*
- Copyright © 2014 myOS Group.
+ Copyright © 2014-2015 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -27,15 +27,18 @@ void FileManagerSetupDirectories()
     DLog(@"");
     NSFileManager *fileManager = [NSFileManager defaultManager];
 #ifdef ANDROID
-	NSString *filePath = @"/data/data/com.myos.myapps/apps";
+    NSString *filePath = @"/data/data/com.myos.myapps/apps";
 #else
-    NSString *filePath = @"~/myos/myapps/apps";
+    //NSString *filePath = @"/home/amr/myos/myapps/apps";
+    NSString *filePath = @"${MYOS_PATH}/myapps/apps";
+    //NSString *filePath = IOPipeRunCommand([NSString stringWithFormat:@"echo %@", preFilePath], YES);
 #endif
     
-	DLog(@"filePath: %@", filePath);
-	if ([fileManager fileExistsAtPath:filePath]) {
+    DLog(@"filePath: %@", filePath);
+    if ([fileManager fileExistsAtPath:filePath]) {
         DLog(@"fileExistsAtPath:filePath");
     } else {
+        DLog(@"IOPipeRunCommand");
         IOPipeRunCommand([NSString stringWithFormat:@"mkdir %@", filePath], NO);
     }
 }
@@ -62,3 +65,4 @@ NSMutableArray *FileManagerInstantiateApps()
     }
     return apps;
 }
+
