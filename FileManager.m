@@ -20,7 +20,16 @@
 #import <IOKit/IOKit.h>
 #import "FileManager.h"
 
-#pragma mark - Public C functions
+
+#pragma mark - Static functions
+
+static NSString *_FileManagerMyOSPath()
+{
+    NSString *myosPath = IOPipeRunCommand(@"echo ${MYOS_PATH}", YES);
+    return [myosPath substringToIndex:myosPath.length-1];
+}
+
+#pragma mark - Public functions
 
 void FileManagerSetupDirectories()
 {
@@ -30,7 +39,7 @@ void FileManagerSetupDirectories()
     NSString *filePath = @"/data/data/com.myos.myapps/apps";
 #else
     //NSString *filePath = @"/home/amr/myos/myapps/apps";
-    NSString *filePath = @"${MYOS_PATH}/myapps/apps";
+    NSString *filePath = [NSString stringWithFormat:@"%@/myapps/apps", _FileManagerMyOSPath()];
     //NSString *filePath = IOPipeRunCommand([NSString stringWithFormat:@"echo %@", preFilePath], YES);
 #endif
     
@@ -51,8 +60,8 @@ NSMutableArray *FileManagerInstantiateApps()
 #ifdef ANDROID
     NSString *filePath = @"/data/data/com.myos.myapps/apps";
 #else
-    NSString *preFilePath = @"${MYOS_PATH}/myapps/apps";
-    NSString *filePath = IOPipeRunCommand([NSString stringWithFormat:@"echo %@", preFilePath], YES);
+    //NSString *preFilePath = @"${MYOS_PATH}";
+   NSString *filePath = [NSString stringWithFormat:@"%@/myapps/apps", _FileManagerMyOSPath()];
 #endif
     
     DLog(@"filePath: %@", filePath);
