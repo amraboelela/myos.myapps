@@ -24,7 +24,7 @@
 
 void FileManagerSetupDirectories()
 {
-    DLog(@"");
+    //DLog(@"");
     NSFileManager *fileManager = [NSFileManager defaultManager];
 #ifdef ANDROID
     NSString *filePath = @"/data/data/com.myos.myapps/apps";
@@ -34,35 +34,43 @@ void FileManagerSetupDirectories()
     //NSString *filePath = IOPipeRunCommand([NSString stringWithFormat:@"echo %@", preFilePath], YES);
 #endif
     
-    DLog(@"filePath: %@", filePath);
+    //DLog(@"filePath: %@", filePath);
     if ([fileManager fileExistsAtPath:filePath]) {
         DLog(@"fileExistsAtPath:filePath");
     } else {
-        DLog(@"IOPipeRunCommand");
-        IOPipeRunCommand([NSString stringWithFormat:@"mkdir %@", filePath], NO);
+        //DLog(@"IOPipeRunCommand");
+        IOPipeRunCommand([NSString stringWithFormat:@"mkdir -p %@", filePath], NO);
     }
 }
 
 NSMutableArray *FileManagerInstantiateApps()
 {
-    DLog(@"");
+    //DLog(@"");
     NSMutableArray *apps = [[NSMutableArray alloc] initWithCapacity:100];
     
 #ifdef ANDROID
     NSString *filePath = @"/data/data/com.myos.myapps/apps";
 #else
-    NSString *filePath = @"~/myos/myapps/apps";
+    NSString *preFilePath = @"${MYOS_PATH}/myapps/apps";
+    NSString *filePath = IOPipeRunCommand([NSString stringWithFormat:@"echo %@", preFilePath], YES);
 #endif
     
+    DLog(@"filePath: %@", filePath);
+    
     NSArray *directories = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:NULL];
+    DLog(@"directories: %@", directories);
     UIChildApplication *maApp;
     for (NSString *directory in directories) {
         NSString *appName  = [directory stringByReplacingOccurrencesOfString:@".app" withString:@""];
         DLog(@"appName: %@", appName);
         maApp = [[UIChildApplication alloc] initWithAppName:appName];
+        DLog();
         [apps addObject:maApp];
+        DLog();
         [maApp release];
+        DLog();
     }
+    DLog();
     return apps;
 }
 
