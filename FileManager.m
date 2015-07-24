@@ -20,14 +20,19 @@
 #import <IOKit/IOKit.h>
 #import "FileManager.h"
 
+/*
+static NSString *_myosPath = nil;
 
 #pragma mark - Static functions
 
 static NSString *_FileManagerMyOSPath()
 {
-    NSString *myosPath = IOPipeRunCommand(@"echo ${MYOS_PATH}", YES);
-    return [myosPath substringToIndex:myosPath.length-1];
-}
+    if (!_myosPath) {
+        _myosPath = IOPipeRunCommand(@"echo ${MYOS_PATH}", YES);
+        _myosPath = [_myosPath substringToIndex:_myosPath.length-1];
+    }
+    return _myosPath;
+}*/
 
 #pragma mark - Public functions
 
@@ -35,17 +40,17 @@ void FileManagerSetupDirectories()
 {
     //DLog(@"");
     NSFileManager *fileManager = [NSFileManager defaultManager];
-#ifdef ANDROID
-    NSString *filePath = @"/data/data/com.myos.myapps/apps";
-#else
+//#ifdef ANDROID
+//    NSString *filePath = @"/data/data/com.myos.myapps/apps";
+//#else
     //NSString *filePath = @"/home/amr/myos/myapps/apps";
-    NSString *filePath = [NSString stringWithFormat:@"%@/myapps/apps", _FileManagerMyOSPath()];
+    NSString *filePath = [NSString stringWithFormat:@"%@/apps", _NSFileManagerMyAppsPath()];
     //NSString *filePath = IOPipeRunCommand([NSString stringWithFormat:@"echo %@", preFilePath], YES);
-#endif
+//#endif
     
     //DLog(@"filePath: %@", filePath);
     if ([fileManager fileExistsAtPath:filePath]) {
-        DLog(@"fileExistsAtPath:filePath");
+        //DLog(@"fileExistsAtPath:filePath");
     } else {
         //DLog(@"IOPipeRunCommand");
         IOPipeRunCommand([NSString stringWithFormat:@"mkdir -p %@", filePath], NO);
@@ -57,17 +62,17 @@ NSMutableArray *FileManagerInstantiateApps()
     //DLog(@"");
     NSMutableArray *apps = [[NSMutableArray alloc] initWithCapacity:100];
     
-#ifdef ANDROID
-    NSString *filePath = @"/data/data/com.myos.myapps/apps";
-#else
+//#ifdef ANDROID
+//    NSString *filePath = @"/data/data/com.myos.myapps/apps";
+//#else
     //NSString *preFilePath = @"${MYOS_PATH}";
-   NSString *filePath = [NSString stringWithFormat:@"%@/myapps/apps", _FileManagerMyOSPath()];
-#endif
+   NSString *filePath = [NSString stringWithFormat:@"%@/apps", _NSFileManagerMyAppsPath()];
+//#endif
     
-    DLog(@"filePath: %@", filePath);
+    //DLog(@"filePath: %@", filePath);
     
     NSArray *directories = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:NULL];
-    DLog(@"directories: %@", directories);
+    //DLog(@"directories: %@", directories);
     UIChildApplication *maApp;
     for (NSString *directory in directories) {
         NSString *appName  = [directory stringByReplacingOccurrencesOfString:@".app" withString:@""];
