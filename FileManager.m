@@ -62,15 +62,7 @@ NSMutableArray *FileManagerInstantiateApps()
     //DLog(@"");
     NSMutableArray *apps = [[NSMutableArray alloc] initWithCapacity:100];
     
-//#ifdef ANDROID
-//    NSString *filePath = @"/data/data/com.myos.myapps/apps";
-//#else
-    //NSString *preFilePath = @"${MYOS_PATH}";
-   NSString *filePath = [NSString stringWithFormat:@"%@/apps", _NSFileManagerMyAppsPath()];
-//#endif
-    
-    //DLog(@"filePath: %@", filePath);
-    
+    NSString *filePath = [NSString stringWithFormat:@"%@/apps", _NSFileManagerMyAppsPath()];
     NSArray *directories = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:NULL];
     //DLog(@"directories: %@", directories);
     UIChildApplication *maApp;
@@ -78,11 +70,8 @@ NSMutableArray *FileManagerInstantiateApps()
         NSString *appName  = [directory stringByReplacingOccurrencesOfString:@".app" withString:@""];
         DLog(@"appName: %@", appName);
         maApp = [[UIChildApplication alloc] initWithAppName:appName];
-        DLog();
         [apps addObject:maApp];
-        DLog();
         [maApp release];
-        DLog();
     }
     DLog();
     return apps;
