@@ -94,17 +94,17 @@ static int ApplicationsDataSetLocations(ApplicationsData *applicationsData)
 
 static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 {
-    //DLog(@"applicationsData->_applications: %@", applicationsData->_applications);
+    DLog(@"applicationsData->_applications: %@", applicationsData->_applications);
     int minusOneIndex = ApplicationsDataSetLocations(applicationsData);
-    //DLog(@"minusOneIndex: %d", minusOneIndex);
+    DLog(@"minusOneIndex: %d", minusOneIndex);
     while (minusOneIndex>-1) {
-        //DLog(@"for (i=minusOneIndex ...");
+        DLog(@"for (i=minusOneIndex ...");
         int flatLocation = kNumberOfAppsPerPage-1;
-        //DLog(@"flatLocation: %d", flatLocation);
+        DLog(@"flatLocation: %d", flatLocation);
         UIChildApplication *application = ApplicationsDataGetCloseDownAppToFlatLocation(applicationsData, flatLocation);
-        //DLog(@"ApplicationsDataGetCloseDownAppToFlatLocation application: %@", application);
+        DLog(@"ApplicationsDataGetCloseDownAppToFlatLocation application: %@", application);
         int appFlatLocation = ApplicationsDataAppFlatLocation(application);
-        //DLog(@"appFlatLocation: %d", appFlatLocation);
+        DLog(@"appFlatLocation: %d", appFlatLocation);
         int newAppScore;
         if (appFlatLocation < flatLocation) {
             newAppScore = application.score - 1;
@@ -114,7 +114,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
         for (int i=minusOneIndex; i<applicationsData->_applications.count; i++) {
             application = [applicationsData->_applications objectAtIndex:i];
             if (application.score == -1) {
-                //DLog(@"application: %@", application);
+                DLog(@"application: %@", application);
                 application.score = newAppScore;
             } else {
                 break;
@@ -122,7 +122,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
             //currentLocation++;
         }
         minusOneIndex = ApplicationsDataSetLocations(applicationsData);
-        //DLog(@"applicationsData->_applications 2: %@", applicationsData->_applications);
+        DLog(@"applicationsData->_applications 2: %@", applicationsData->_applications);
     }
 }
 
@@ -142,30 +142,31 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 {
     if ((self=[super init])) {
         _applications = FileManagerInstantiateApps();
+        DLog();
         ApplicationsDataAutoArrange(self);
-        //DLog();
+        DLog();
         NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:YES];
-        //DLog(@"_applications: %@", _applications);
+        DLog(@"_applications: %@", _applications);
         self.applications = [_applications sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
-        //DLog(@"_applications: %@", _applications);
+        DLog(@"_applications: %@", _applications);
         UIChildApplication *lastApplication = [_applications lastObject];
         int lastPageNumber = lastApplication.pageNumber;
         int numberOfPages = lastPageNumber + 1;
-        //DLog(@"numberOfPages: %d", numberOfPages);
+        DLog(@"numberOfPages: %d", numberOfPages);
         
         _applicationsPages = [[NSMutableArray alloc] initWithCapacity:10];
         int startIndex = 0;
         for (int i=0; i<numberOfPages; i++) {
-            //DLog(@"i: %d", i);
+            DLog(@"i: %d", i);
             ApplicationsPage *applicationsPage = [[ApplicationsPage alloc] initWithPageNumber:i
                                                                               andApplications:_applications
                                                                                    startIndex:startIndex];
             startIndex += applicationsPage->_numberOfApplications;
-            //DLog();
+            DLog();
             [_applicationsPages addObject:applicationsPage];
             [applicationsPage release];
         }
-        //DLog(@"_applicationsPages: %@", _applicationsPages);
+        DLog(@"_applicationsPages: %@", _applicationsPages);
     }
     return self;
 }
