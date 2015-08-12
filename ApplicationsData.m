@@ -1,5 +1,5 @@
 /*
- Copyright © 2014 myOS Group.
+ Copyright © 2014-2015 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -35,6 +35,7 @@ static int ApplicationsDataAppFlatLocation(UIChildApplication *application)
     return application.pageNumber * kNumberOfAppsPerPage + application.yLocation * kNumberOfAppsPerRow +  application.xLocation;;
 }
 
+/*
 static UIChildApplication *ApplicationsDataGetCloseDownAppToFlatLocation(ApplicationsData *applicationsData, int flatLocation)
 {
     NSSortDescriptor *pageNumberDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:NO];
@@ -48,55 +49,61 @@ static UIChildApplication *ApplicationsDataGetCloseDownAppToFlatLocation(Applica
         }
     }
     return nil;
-}
+}*/
 
-static int ApplicationsDataSetLocations(ApplicationsData *applicationsData)
+static void ApplicationsDataSetLocations(ApplicationsData *applicationsData)
 {
     //DLog(@"applicationsData->_applications: %@", applicationsData->_applications);
-    NSSortDescriptor *anchoredDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"anchored" ascending:NO];
+    //NSSortDescriptor *categoryDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"category" ascending:NO];
     NSSortDescriptor *scoreDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
-    applicationsData.applications = [applicationsData->_applications sortedArrayUsingDescriptors:[NSArray arrayWithObjects:anchoredDescriptor, scoreDescriptor, nil]];
-    //DLog(@"anchored score sorted applications: %@", applicationsData->_applications);
-    int allocSize = sizeof(BOOL)*kMaximumNumberOfApps;
+    applicationsData.applications = [applicationsData->_applications sortedArrayUsingDescriptors:[NSArray arrayWithObjects:scoreDescriptor, nil]];
+    //DLog(@"Score sorted applications: %@", applicationsData->_applications);
+    int allocSize = sizeof(BOOL)*kNumberOfAppsPerPage;//sizeof(BOOL)*kMaximumNumberOfApps;
     BOOL *filledLocations = malloc(allocSize);
     memset(filledLocations,NO,allocSize);
     int currentLocation = 0;
-    int minusOneIndex = -1;
+    //int minusOneIndex = -1;
     //int i;
     int flatLocation;
     UIChildApplication *application;
-    for (int i=0; i<applicationsData->_applications.count; i++) {
+    int count = applicationsData->_applications.count;
+    if (count > kNumberOfAppsPerPage) {
+        count = kNumberOfAppsPerPage;
+    }
+    for (int i=0; i<count; i++) {
         application = [applicationsData->_applications objectAtIndex:i];
         //DLog(@"application: %@", application);
-        if (application.anchored) {
-            flatLocation = ApplicationsDataAppFlatLocation(application);
+        //if (application.anchored) {
+        flatLocation = ApplicationsDataAppFlatLocation(application);
             //DLog(@"flatLocation: %d", flatLocation);
-            filledLocations[flatLocation] = YES;
-        } else if (application.score > -1) {
-            while (filledLocations[currentLocation]) {
-                currentLocation++;
-            }
-            //DLog(@"currentLocation: %d", currentLocation);
-            filledLocations[currentLocation] = YES;
-            application.pageNumber = currentLocation / kNumberOfAppsPerPage;
-            application.yLocation = (currentLocation % kNumberOfAppsPerPage) / kNumberOfAppsPerRow;
-            application.xLocation = (currentLocation % kNumberOfAppsPerPage) % kNumberOfAppsPerRow;
-            //DLog(@"set application: %@", application);
+            //filledLocations[flatLocation] = YES;
+        //} else if (application.score > -1) {
+        while (filledLocations[currentLocation]) {
             currentLocation++;
-            UIChildApplicationSaveData(application);
-        } else {
-            minusOneIndex = i;
         }
+            //DLog(@"currentLocation: %d", currentLocation);
+        filledLocations[currentLocation] = YES;
+            //application.pageNumber = currentLocation / kNumberOfAppsPerPage;
+        application.yLocation = currentLocation / kNumberOfAppsPerRow;
+        application.xLocation = currentLocation % kNumberOfAppsPerRow;
+        //DLog(@"set application: %@", application);
+        currentLocation++;
+        UIChildApplicationSaveData(application);
+        //} else {
+        //    minusOneIndex = i;
+        //}
     }
+    //DLog();
     free(filledLocations);
-    return minusOneIndex;
+    //return;// minusOneIndex;
 }
 
 static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 {
-    DLog(@"applicationsData->_applications: %@", applicationsData->_applications);
-    int minusOneIndex = ApplicationsDataSetLocations(applicationsData);
-    DLog(@"minusOneIndex: %d", minusOneIndex);
+    //DLog(@"applicationsData->_applications: %@", applicationsData->_applications);
+    ApplicationsDataSetLocations(applicationsData);
+    //DLog();
+    /*DLog(@"minusOneIndex: %d", minusOneIndex);
     while (minusOneIndex>-1) {
         DLog(@"for (i=minusOneIndex ...");
         int flatLocation = kNumberOfAppsPerPage-1;
@@ -123,7 +130,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
         }
         minusOneIndex = ApplicationsDataSetLocations(applicationsData);
         DLog(@"applicationsData->_applications 2: %@", applicationsData->_applications);
-    }
+    }*/
 }
 
 @implementation ApplicationsData
@@ -142,31 +149,31 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 {
     if ((self=[super init])) {
         _applications = FileManagerInstantiateApps();
-        DLog();
+        //DLog();
         ApplicationsDataAutoArrange(self);
-        DLog();
-        NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:YES];
+        //DLog();
+        //NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:YES];
         DLog(@"_applications: %@", _applications);
-        self.applications = [_applications sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
-        DLog(@"_applications: %@", _applications);
+        //self.applications = [_applications sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
+        //DLog(@"_applications: %@", _applications);
         UIChildApplication *lastApplication = [_applications lastObject];
-        int lastPageNumber = lastApplication.pageNumber;
-        int numberOfPages = lastPageNumber + 1;
-        DLog(@"numberOfPages: %d", numberOfPages);
+        //int lastPageNumber = lastApplication.pageNumber;
+        int numberOfPages = _applications.count /  kNumberOfAppsPerPage + 1;// lastPageNumber + 1;
+        //DLog(@"numberOfPages: %d", numberOfPages);
         
         _applicationsPages = [[NSMutableArray alloc] initWithCapacity:10];
         int startIndex = 0;
         for (int i=0; i<numberOfPages; i++) {
-            DLog(@"i: %d", i);
+            //DLog(@"i: %d", i);
             ApplicationsPage *applicationsPage = [[ApplicationsPage alloc] initWithPageNumber:i
                                                                               andApplications:_applications
                                                                                    startIndex:startIndex];
             startIndex += applicationsPage->_numberOfApplications;
-            DLog();
+            //DLog();
             [_applicationsPages addObject:applicationsPage];
             [applicationsPage release];
         }
-        DLog(@"_applicationsPages: %@", _applicationsPages);
+        //DLog(@"_applicationsPages: %@", _applicationsPages);
     }
     return self;
 }
@@ -192,3 +199,4 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 }
 
 @end
+

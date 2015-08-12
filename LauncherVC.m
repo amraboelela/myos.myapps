@@ -1,5 +1,5 @@
 /*
- Copyright © 2014 myOS Group.
+ Copyright © 2014-2015 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -37,6 +37,7 @@
     
     ApplicationsData *applicationsData = [ApplicationsData sharedData];
     int numberOfPages = applicationsData->_applicationsPages.count;
+    DLog(@"numberOfPages: %d", numberOfPages);
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
                                                                    frame.size.width, _kUIPageControlHeight)];
     _pageControl.numberOfPages = numberOfPages;
@@ -49,8 +50,9 @@
     
     _launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
     _launcherView.delegate = self;
-    //DLog();
+    DLog();
     [self.view addSubview:_launcherView];
+    return;
 }
 
 - (void)dealloc
@@ -67,12 +69,12 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     _pageControl.currentPage = round(scrollView.contentOffset.x / scrollView.bounds.size.width);
-    //DLog(@"_pageControl.currentPage2: %d", _pageControl.currentPage);
+    DLog(@"_pageControl.currentPage2: %d", _pageControl.currentPage);
 }
 
 - (void)gotoHomepage
 {
-    //DLog();
+    DLog();
     _pageControl.currentPage = 0;
     _launcherView.contentOffset = CGPointMake(0, _launcherView.contentOffset.y);
 }
@@ -81,9 +83,10 @@
 
 - (void)pageControlValueChanged:(id)sender
 {
-    //DLog(@"sender: %@", sender);
+    DLog(@"sender: %@", sender);
     [_launcherView setContentOffset:CGPointMake(_pageControl.currentPage * _launcherView.bounds.size.width, _launcherView.contentOffset.y)
                            animated:YES];
 }
 
 @end
+

@@ -68,12 +68,12 @@ NSMutableArray *FileManagerInstantiateApps()
     UIChildApplication *maApp;
     for (NSString *directory in directories) {
         NSString *appName  = [directory stringByReplacingOccurrencesOfString:@".app" withString:@""];
-        DLog(@"appName: %@", appName);
+        //DLog(@"appName: %@", appName);
         maApp = [[UIChildApplication alloc] initWithAppName:appName];
         [apps addObject:maApp];
         [maApp release];
     }
-    DLog();
+    //DLog();
     return apps;
 }
 
