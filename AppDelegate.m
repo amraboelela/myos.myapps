@@ -45,7 +45,7 @@
     [_window addSubview:_loadingScreenVC.view];
     [_window makeKeyAndVisible];
     
-    DLog(@"self: %@", self);
+    //DLog(@"self: %@", self);
     [self performSelector:@selector(loadViews) withObject:nil afterDelay:0.01];
     //DLog();
     return YES;
@@ -53,32 +53,32 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    DLog();
+    //DLog();
     [_launcherVC gotoHomepage];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    DLog();
+    //DLog();
 }
 
 #pragma mark - Helpers
 
 - (void)loadViews
 {
-    DLog();
+    //DLog();
     _launcherVC = [[LauncherVC alloc] init];
-    DLog();
+    //DLog();
     [_window addSubview:_launcherVC.view];
-    DLog();
+    //DLog();
     [_loadingScreenVC.view removeFromSuperview];
-    DLog();
+    //DLog();
     [_loadingScreenVC release];
-    DLog();
+    //DLog();
     _loadingScreenVC = nil;
     //UIParentApplicationLauncherViewDidAdded();
-    DLog();
-    DLog(@"self: %@", self);
+    //DLog();
+    //DLog(@"self: %@", self);
 }
 
 @end
