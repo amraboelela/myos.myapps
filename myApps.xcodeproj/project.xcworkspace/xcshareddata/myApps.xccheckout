@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>339DA7D3E1E50EBF30F12E682C83217313401E2C</key>
-		<string>https://github.com/amraboelela/myos.android.myapps.git</string>
+		<string>github.com:amraboelela/myos.myapps</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>myApps.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/amraboelela/myos.android.myapps.git</string>
+	<string>github.com:amraboelela/myos.myapps</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
