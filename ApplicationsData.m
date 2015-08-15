@@ -30,25 +30,10 @@ static NSString *const _kMAPageNumber = @"pageNumber";
 
 #pragma mark - Static functions
 
+/*
 static int ApplicationsDataAppFlatLocation(UIChildApplication *application)
 {
-    return application.pageNumber * kNumberOfAppsPerPage + application.yLocation * kNumberOfAppsPerRow +  application.xLocation;;
-}
-
-/*
-static UIChildApplication *ApplicationsDataGetCloseDownAppToFlatLocation(ApplicationsData *applicationsData, int flatLocation)
-{
-    NSSortDescriptor *pageNumberDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:NO];
-    NSSortDescriptor *yLocationDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"yLocation" ascending:NO];
-    NSSortDescriptor *xLocationDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"xLocation" ascending:NO];
-    NSMutableArray *applications = [applicationsData->_applications sortedArrayUsingDescriptors:[NSArray arrayWithObjects:pageNumberDescriptor, yLocationDescriptor, xLocationDescriptor, nil]];
-    //DLog(@"pageNumber, yLocation, xLocation sorted applications: %@", applications);
-    for (UIChildApplication *application in applications) {
-        if (ApplicationsDataAppFlatLocation(application) <= flatLocation) {
-            return application;
-        }
-    }
-    return nil;
+    return application.pageNumber * kNumberOfAppsPerPage + application.yLocation * kNumberOfAppsPerRow +  application.xLocation;
 }*/
 
 static void ApplicationsDataSetLocations(ApplicationsData *applicationsData)
@@ -58,13 +43,11 @@ static void ApplicationsDataSetLocations(ApplicationsData *applicationsData)
     NSSortDescriptor *scoreDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
     applicationsData.applications = [applicationsData->_applications sortedArrayUsingDescriptors:[NSArray arrayWithObjects:scoreDescriptor, nil]];
     //DLog(@"Score sorted applications: %@", applicationsData->_applications);
-    int allocSize = sizeof(BOOL)*kNumberOfAppsPerPage;//sizeof(BOOL)*kMaximumNumberOfApps;
+    int allocSize = sizeof(BOOL)*kNumberOfAppsPerPage;
     BOOL *filledLocations = malloc(allocSize);
     memset(filledLocations,NO,allocSize);
     int currentLocation = 0;
-    //int minusOneIndex = -1;
-    //int i;
-    int flatLocation;
+    //int flatLocation;
     UIChildApplication *application;
     int count = applicationsData->_applications.count;
     if (count > kNumberOfAppsPerPage) {
@@ -74,7 +57,7 @@ static void ApplicationsDataSetLocations(ApplicationsData *applicationsData)
         application = [applicationsData->_applications objectAtIndex:i];
         //DLog(@"application: %@", application);
         //if (application.anchored) {
-        flatLocation = ApplicationsDataAppFlatLocation(application);
+        //flatLocation = ApplicationsDataAppFlatLocation(application);
             //DLog(@"flatLocation: %d", flatLocation);
             //filledLocations[flatLocation] = YES;
         //} else if (application.score > -1) {
@@ -158,7 +141,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
         //DLog(@"_applications: %@", _applications);
         UIChildApplication *lastApplication = [_applications lastObject];
         //int lastPageNumber = lastApplication.pageNumber;
-        int numberOfPages = _applications.count /  kNumberOfAppsPerPage + 1;// lastPageNumber + 1;
+        int numberOfPages = _applications.count /  kNumberOfAppsPerPage + 2;// lastPageNumber + 1;
         //DLog(@"numberOfPages: %d", numberOfPages);
         
         _applicationsPages = [[NSMutableArray alloc] initWithCapacity:10];
@@ -191,6 +174,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 
 - (void)rearrageApplications
 {
+    DLog();
     for (int i=0; i<_applicationsPages.count-1; i++) {
         ApplicationsPage *applicationsPage = [_applicationsPages objectAtIndex:i];
         ApplicationsPage *nextApplicationsPage = [_applicationsPages objectAtIndex:i+1];
@@ -199,4 +183,3 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 }
 
 @end
-

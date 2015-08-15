@@ -1,5 +1,5 @@
 /*
- Copyright © 2014 myOS Group.
+ Copyright © 2014-2015 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -35,8 +35,8 @@
                     //DLog(@"application: %@", application);
                     UIApplicationIcon *icon = application->_applicationIcon;
                     icon.frame = CGRectMake(_kIconWidth * application.xLocation,
-                                            self.frame.size.height - _kIconHeight * application.yLocation - icon.frame.size.height,
-                                            icon.frame.size.width, icon.frame.size.height);
+                                            _kIconHeight * application.yLocation - icon.frame.size.height,
+                                            icon.frame.size.width, icon.frame.size.height); // self.frame.size.height -
                     icon.parentScrollView = parentScrollView;
                     [self addSubview:icon];
                 }
