@@ -1,5 +1,6 @@
 myapps
 xcuserdata
+*.xccheckout
 *.so
 bin
 gen
