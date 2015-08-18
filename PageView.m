@@ -34,9 +34,10 @@
                 if (application != [NSNull null]) {
                     //DLog(@"application: %@", application);
                     UIApplicationIcon *icon = application->_applicationIcon;
-                    icon.frame = CGRectMake(_kIconWidth * application.xLocation,
-                                            _kIconHeight * application.yLocation - icon.frame.size.height,
-                                            icon.frame.size.width, icon.frame.size.height); // self.frame.size.height -
+                    //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
+                    DLog(@"application.yLocation: %d", application.yLocation);
+                    icon.frame = CGRectMake(_kIconWidth * application.xLocation, _kIconHeight * application.yLocation, 
+                                            icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
                     icon.parentScrollView = parentScrollView;
                     [self addSubview:icon];
                 }

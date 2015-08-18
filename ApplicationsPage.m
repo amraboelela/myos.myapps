@@ -37,7 +37,6 @@
                          [[[NSMutableArray alloc] initWithObjects:[NSNull null], [NSNull null], [NSNull null], [NSNull null], nil] autorelease],
                          [[[NSMutableArray alloc] initWithObjects:[NSNull null], [NSNull null], [NSNull null], [NSNull null], nil] autorelease],
                          nil];
-        //DLog();
         for (int i=index; i<applications.count; i++) {
             UIChildApplication *application = [applications objectAtIndex:i];
             //DLog(@"application: %@", application);
@@ -47,7 +46,6 @@
             if (appPageNumber == _pageNumber) {
                 _numberOfApplications++;
                 //DLog(@"[_applications objectAtIndex:application.yLocation]: %@", [_applications objectAtIndex:application.yLocation]);
-                //DLog(@"application.yLocation: %d, application.xLocation: %d", application.yLocation, application.xLocation);
                 [[_applications objectAtIndex:application.yLocation] replaceObjectAtIndex:application.xLocation withObject:application];
                 //[application addObserver:self forKeyPath:@"running" options:NSKeyValueObservingOptionPrior context:nil];
                 //DLog(@"[_applications objectAtIndex:application.yLocation] 2: %@", [_applications objectAtIndex:application.yLocation]);
@@ -75,7 +73,7 @@
             if (application != [NSNull null]) {
                 if (!maxApp) {
                     maxApp = application;
-                } else if (maxApp->_score < application->_score && !application.anchored) {
+                } else if (maxApp->_score < application->_score) {
                     maxApp = application;
                 }
             }
@@ -92,7 +90,7 @@
             if (application != [NSNull null]) {
                 if (!minApp) {
                     minApp = application;
-                } else if (minApp->_score > application->_score && !application.anchored) {
+                } else if (minApp->_score > application->_score) {
                     minApp = application;
                 }
             }
