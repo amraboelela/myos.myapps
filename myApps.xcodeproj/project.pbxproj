@@ -11,10 +11,8 @@
 		F575460919CC841B000DDF29 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
 		F575460A19CC841B000DDF29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F575460B19CC841B000DDF29 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F575460C19CC841B000DDF29 /* ApplicationsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationsData.h; sourceTree = "<group>"; };
-		F575460D19CC841B000DDF29 /* ApplicationsData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationsData.m; sourceTree = "<group>"; };
-		F575460E19CC841B000DDF29 /* ApplicationsPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplicationsPage.h; sourceTree = "<group>"; };
-		F575460F19CC841B000DDF29 /* ApplicationsPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApplicationsPage.m; sourceTree = "<group>"; };
+		F575460C19CC841B000DDF29 /* _ApplicationsData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _ApplicationsData.h; sourceTree = "<group>"; };
+		F575460D19CC841B000DDF29 /* _ApplicationsData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _ApplicationsData.m; sourceTree = "<group>"; };
 		F575461119CC841B000DDF29 /* build.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = build.xml; sourceTree = "<group>"; };
 		F575461219CC841B000DDF29 /* commands.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = commands.xml; sourceTree = "<group>"; };
 		F575461319CC841B000DDF29 /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
@@ -39,7 +37,6 @@
 		F575462B19CC841B000DDF29 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		F58B52391B5DA53F00E7F9D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F5DB34891B7EB5B800F00419 /* apps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = apps; sourceTree = "<group>"; };
 		F5F5F66F1B57246400285921 /* NAObj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NAObj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,15 +44,12 @@
 		F575460219CC83F6000DDF29 = {
 			isa = PBXGroup;
 			children = (
-				F5DB34891B7EB5B800F00419 /* apps */,
 				F533FEE41A11839700627384 /* assets */,
 				F575460919CC841B000DDF29 /* AndroidManifest.xml */,
 				F575460A19CC841B000DDF29 /* AppDelegate.h */,
 				F575460B19CC841B000DDF29 /* AppDelegate.m */,
-				F575460C19CC841B000DDF29 /* ApplicationsData.h */,
-				F575460D19CC841B000DDF29 /* ApplicationsData.m */,
-				F575460E19CC841B000DDF29 /* ApplicationsPage.h */,
-				F575460F19CC841B000DDF29 /* ApplicationsPage.m */,
+				F575460C19CC841B000DDF29 /* _ApplicationsData.h */,
+				F575460D19CC841B000DDF29 /* _ApplicationsData.m */,
 				F575461119CC841B000DDF29 /* build.xml */,
 				F575461219CC841B000DDF29 /* commands.xml */,
 				F575461319CC841B000DDF29 /* FileManager.h */,

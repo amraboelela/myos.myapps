@@ -17,7 +17,7 @@
 
 #import "LauncherVC.h"
 #import "LauncherView.h"
-#import "ApplicationsData.h"
+//#import "ApplicationsData.h"
 
 #define _kUIPageControlHeight       20
 
@@ -35,9 +35,9 @@
     self.view.frame = frame;
     //[self.view addSubview:_backgroundView];
     
-    ApplicationsData *applicationsData = [ApplicationsData sharedData];
-    int numberOfPages = applicationsData->_applicationsPages.count;
-    DLog(@"numberOfPages: %d", numberOfPages);
+    //ApplicationsData *applicationsData = [ApplicationsData sharedData];
+    //int numberOfPages = applicationsData->_applicationsPages.count;
+    //DLog(@"numberOfPages: %d", numberOfPages);
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
                                                                    frame.size.width, _kUIPageControlHeight)];
     _pageControl.numberOfPages = numberOfPages;

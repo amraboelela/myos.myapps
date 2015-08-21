@@ -15,14 +15,26 @@
  Amr Aboelela <amraboelela@gmail.com>
  */
 
-#import "ApplicationsPage.h"
+#import <Foundation/Foundation.h>
+
+//#import "ApplicationsPage.h"
 
 @interface PageView : UIView {
 @package
-    ApplicationsPage *_applicationsPage;
+    //ApplicationsPage *_applicationsPage;
+    NSMutableArray *_allApplications;
+    NSArray *_sortDescriptors;
+    int _startingIndex;
+    NSMutableArray *_pageApplications;
 }
 
-- (id)initWithFrame:(CGRect)theFrame andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView;
+@property (nonatomic, retain) NSMutableArray *allApplications;
+@property (nonatomic, retain) NSArray *sortDescriptors;
+@property (nonatomic, retain) NSMutableArray *pageApplications;
+
+- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications scoreDescriptors:(NSArray *)scoreDescriptors andStartingIndex:(int)startingIndex;
+
+//andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView;
 
 @end
 

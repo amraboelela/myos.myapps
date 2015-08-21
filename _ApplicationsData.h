@@ -15,25 +15,18 @@
  Amr Aboelela <amraboelela@gmail.com>
  */
 
-#import <UIKit/UIKit-private.h>
+#import <Foundation/Foundation.h>
 
-@interface ApplicationsPage : NSObject {
+@interface ApplicationsData : NSObject {
 @package
-    int _pageNumber;
-    NSArray *_applications;
-    int _numberOfApplications;
-    id _delegate;
+    NSMutableArray *_applications;
+    //NSMutableArray *_applicationsPages;
 }
 
-- (id)initWithPageNumber:(int)pageNumber andApplications:(NSArray *)applications startIndex:(int)index;
-- (void)rearrageApplicationsWithNextPage:(ApplicationsPage *)nextPage;
+@property (nonatomic, retain) NSMutableArray *applications;
+//@property (nonatomic, retain) NSMutableArray *applicationsPages;
+
++ (ApplicationsData *)sharedData;
+//- (void)rearrageApplications;
 
 @end
-
-@protocol ApplicationsPageDelegate <NSObject>
-
-- (void)applicationWillMove:(UIChildApplication *)application;
-- (void)applicationDidMove:(UIChildApplication *)application;
-
-@end
-

@@ -18,7 +18,9 @@
 #import <UIKit/UIKit.h>
 
 @interface LauncherView : UIScrollView {
-@package
+    NSMutableArray *_applications;
 }
+
+@property (nonatomic, retain) NSMutableArray *applications;
 
 @end

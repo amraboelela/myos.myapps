@@ -1,5 +1,5 @@
 /*
- Copyright © 2014 myOS Group.
+ Copyright © 2014-2015 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -18,7 +18,7 @@
 #import <UIKit/UIKit-private.h>
 #import "PageView.h"
 #import "LauncherView.h"
-#import "ApplicationsData.h"
+//#import "ApplicationsData.h"
 
 #define _kIconWidth                 80
 #define _kIconHeight                92
@@ -32,8 +32,12 @@
 {
     self = [super initWithFrame:theFrame];
     if (self) {
-        ApplicationsData *applicationsData = [ApplicationsData sharedData];
-        int numberOfPages = applicationsData->_applicationsPages.count;
+        _applications = FileManagerInstantiateApps();
+        NSSortDescriptor *scoreDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
+        self.scoreDescriptors = [NSArray arrayWithObjects:scoreDescriptor, nil];
+        
+        //ApplicationsData *applicationsData = [ApplicationsData sharedData];
+        int numberOfPages = 2;//applicationsData->_applicationsPages.count;
         PageView *pageView = nil;
         self.contentSize = CGSizeMake(theFrame.size.width * numberOfPages, theFrame.size.height);
         self.pagingEnabled = YES;
@@ -42,8 +46,10 @@
             pageView = [[PageView alloc]
                         initWithFrame:CGRectMake(self.frame.origin.x + i * self.frame.size.width, self.frame.origin.y,
                                                  self.frame.size.width, self.frame.size.height)
-                        andApplicationsPage:[applicationsData->_applicationsPages objectAtIndex:i]
-                        andParentScrollView:self];
+                        scrollView:self
+                        applications:_applications
+                        scoreDescriptors:_scoreDescriptors
+                        andStartingIndex:0];
             [self addSubview:pageView];
             [pageView release];
         };
@@ -55,10 +61,10 @@
 
 - (void)dealloc
 {
+    [_applications release];
     [super dealloc];
 }
 
 #pragma mark - Actions
 
 @end
-

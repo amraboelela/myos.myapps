@@ -17,7 +17,7 @@
 
 #import <UIKit/UIKit-private.h>
 #import "ApplicationsData.h"
-#import "ApplicationsPage.h"
+//#import "ApplicationsPage.h"
 #import "FileManager.h"
 
 #define kMaximumNumberOfPages   10
@@ -118,7 +118,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 @implementation ApplicationsData
 
 @synthesize applications=_applications;
-@synthesize applicationsPages=_applicationsPages;
+//@synthesize applicationsPages=_applicationsPages;
 
 #pragma mark - Life cycle
 
@@ -131,7 +131,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 {
     if ((self=[super init])) {
         _applications = FileManagerInstantiateApps();
-        ApplicationsDataAutoArrange(self);
+        //ApplicationsDataAutoArrange(self);
         //NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"pageNumber" ascending:YES];
         //DLog(@"_applications: %@", _applications);
         //self.applications = [_applications sortedArrayUsingDescriptors:[NSArray arrayWithObject:descriptor]];
@@ -140,21 +140,21 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
         int numberOfPages = _applications.count / kNumberOfAppsPerPage + 2;// lastPageNumber + 1;
         //DLog(@"numberOfPages: %d", numberOfPages);
         
-        _applicationsPages = [[NSMutableArray alloc] initWithCapacity:10];
+        //_applicationsPages = [[NSMutableArray alloc] initWithCapacity:10];
         int startIndex = 0;
-        ApplicationsPage *applicationsPage = [[ApplicationsPage alloc] initWithPageNumber:0
-                                                                          andApplications:_applications
-                                                                               startIndex:startIndex];
-        [_applicationsPages addObject:applicationsPage];
-        [applicationsPage release];
-        for (int i=1; i<numberOfPages; i++) {
+        //ApplicationsPage *applicationsPage = [[ApplicationsPage alloc] initWithPageNumber:0
+        //                                                                  andApplications:_applications
+        //                                                                       startIndex:startIndex];
+        //[_applicationsPages addObject:applicationsPage];
+        //[applicationsPage release];
+        /*for (int i=1; i<numberOfPages; i++) {
             applicationsPage = [[ApplicationsPage alloc] initWithPageNumber:i
                                                             andApplications:_applications
                                                                  startIndex:startIndex];
             startIndex += applicationsPage->_numberOfApplications;
             [_applicationsPages addObject:applicationsPage];
             [applicationsPage release];
-        }
+        }*/
         //DLog(@"_applicationsPages: %@", _applicationsPages);
     }
     return self;
@@ -170,7 +170,7 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
 #pragma mark - Delegates
 
 #pragma mark - Misc
-
+/*
 - (void)rearrageApplications
 {
     for (int i=0; i<_applicationsPages.count-1; i++) {
@@ -178,6 +178,6 @@ static void ApplicationsDataAutoArrange(ApplicationsData *applicationsData)
         ApplicationsPage *nextApplicationsPage = [_applicationsPages objectAtIndex:i+1];
         [applicationsPage rearrageApplicationsWithNextPage:nextApplicationsPage];
     }
-}
+}*/
 
 @end

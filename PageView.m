@@ -20,29 +20,36 @@
 
 @implementation PageView
 
+@synthesize allApplications=_allApplications;
+@synthesize sortDescriptors=_sortDescriptors;
+@synthesize pageApplications=_pageApplications;
+
 #pragma mark - Life cycle
 
-- (id)initWithFrame:(CGRect)theFrame andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView
-{ 
+//- (id)initWithFrame:(CGRect)theFrame andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView
+- (id)initWithFrame:(CGRect)theFrame parentScrollView:(UIScrollView *)parentScrollView applications:(NSMutableArray *)applications scoreDescriptors:(NSArray *)scoreDescriptors andStartingIndex:(int)startingIndex
+{
     self = [super initWithFrame:theFrame];
     if (self) {
-        _applicationsPage = applicationsPage;
-        _applicationsPage->_delegate = self;
-        for (NSArray *row in _applicationsPage->_applications) {
-            for (UIChildApplication *application in row) {
-                //DLog(@"application: %p", application);
-                if (application != [NSNull null]) {
-                    //DLog(@"application: %@", application);
-                    UIApplicationIcon *icon = application->_applicationIcon;
-                    //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
-                    DLog(@"application.yLocation: %d", application.yLocation);
-                    icon.frame = CGRectMake(_kIconWidth * application.xLocation, _kIconHeight * application.yLocation, 
-                                            icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
-                    icon.parentScrollView = parentScrollView;
-                    [self addSubview:icon];
-                }
+        //_applicationsPage = applicationsPage;
+        //_applicationsPage->_delegate = self;
+        //for (NSArray *row in _applicationsPage->_applications) {
+        int xLocation = 0;
+        int yLocation = 0;
+        for (UIChildApplication *application in applications) {
+            //DLog(@"application: %p", application);
+            if (application != [NSNull null]) {
+                //DLog(@"application: %@", application);
+                UIApplicationIcon *icon = application->_applicationIcon;
+                //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
+                //DLog(@"application.yLocation: %d", application.yLocation);
+                icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
+                                        icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
+                icon.parentScrollView = parentScrollView;
+                [self addSubview:icon];
             }
         }
+        //}
         //DLog(@"self: %@", self);
     }
     return self;
@@ -50,7 +57,9 @@
 
 - (void)dealloc
 {
-    //[_icons release];
+    [_allApplications release];
+    [_sortDescriptors release];
+    [_pageApplications release];
     [super dealloc];
 }
 
