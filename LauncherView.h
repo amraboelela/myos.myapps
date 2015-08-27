@@ -23,4 +23,6 @@
 
 @property (nonatomic, retain) NSMutableArray *applications;
 
+- (int)numberOfPages;
+
 @end

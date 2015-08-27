@@ -37,7 +37,7 @@
         self.scoreDescriptors = [NSArray arrayWithObjects:scoreDescriptor, nil];
         
         //ApplicationsData *applicationsData = [ApplicationsData sharedData];
-        int numberOfPages = 2;//applicationsData->_applicationsPages.count;
+        int numberOfPages = [self numberOfPages];//applicationsData->_applicationsPages.count;
         PageView *pageView = nil;
         self.contentSize = CGSizeMake(theFrame.size.width * numberOfPages, theFrame.size.height);
         self.pagingEnabled = YES;
@@ -63,6 +63,18 @@
 {
     [_applications release];
     [super dealloc];
+}
+
+#pragma mark - Accessors
+
+- (int)numberOfPages
+{
+    int numberOfAppsPerPage = 6 * 4;
+    int result = self.applications.count / numberOfAppsPerPage + 1;
+    if (self.applications.count % numberOfAppsPerPage > 0) {
+        result++;
+    }
+    return result;
 }
 
 #pragma mark - Actions

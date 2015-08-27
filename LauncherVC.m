@@ -29,46 +29,40 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];// colorWithRed:0.0 green:100.0/255.0 blue:0.0 alpha:1.0];
-
+    
     CGRect frame = self.view.frame;
     self.view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.png"]] autorelease];
     self.view.frame = frame;
-    //[self.view addSubview:_backgroundView];
     
     NSMutableArray *applications = FileManagerInstantiateApps();
-    //ApplicationsData *applicationsData = [ApplicationsData sharedData];
-    int numberOfAppsPerPage = 6 * 4;
-    int numberOfPages = applications.count / numberOfAppsPerPage + 1;//applicationsData->_applicationsPages.count;
-    if (applications.count % numberOfAppsPerPage > 0) {
-        numberOfPages++;
-    }
-    DLog(@"numberOfPages: %d", numberOfPages);
-    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
-                                                                   frame.size.width, _kUIPageControlHeight)];
-    _pageControl.numberOfPages = numberOfPages;
-    _pageControl.currentPage = 0;
+    LauncherView *launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
+    launcherView.delegate = self;
+    launcherView.applications = applications;
+    
+    DLog(@"numberOfPages: %d", [launcherView numberOfPages]);
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
+                                                                                 frame.size.width, _kUIPageControlHeight)];
+    pageControl.numberOfPages = [launcherView numberOfPages];
+    pageControl.currentPage = 0;
     [self.view addSubview:_pageControl];
     
-    [_pageControl addTarget:self
-                     action:@selector(pageControlValueChanged:)
-           forControlEvents:UIControlEventValueChanged];
+    [pageControl addTarget:self
+                    action:@selector(pageControlValueChanged:)
+          forControlEvents:UIControlEventValueChanged];
     
-    
-    _launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
-    _launcherView.delegate = self;
-    _launcherView.applications = applications;
-    //DLog();
     [applications release];
-    [self.view addSubview:_launcherView];
+    [self.view addSubview:launcherView];
+    [pageControl release];
+    [launcherView release];
     return;
 }
 
 - (void)dealloc
 {
-    [_backgroundView release];
-    [_pageControl release];
+    //[_backgroundView release];
+    //[_pageControl release];
     //[_scrollView release];
-    [_launcherView release];
+    //[_launcherView release];
     [super dealloc];
 }
 
