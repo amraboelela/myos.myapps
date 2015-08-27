@@ -39,7 +39,6 @@
 		F575462B19CC841B000DDF29 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		F58B52391B5DA53F00E7F9D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F5DB34891B7EB5B800F00419 /* apps */ = {isa = PBXFileReference; lastKnownFileType = folder; path = apps; sourceTree = "<group>"; };
 		F5F5F66F1B57246400285921 /* NAObj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NAObj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,7 +46,6 @@
 		F575460219CC83F6000DDF29 = {
 			isa = PBXGroup;
 			children = (
-				F5DB34891B7EB5B800F00419 /* apps */,
 				F533FEE41A11839700627384 /* assets */,
 				F575460919CC841B000DDF29 /* AndroidManifest.xml */,
 				F575460A19CC841B000DDF29 /* AppDelegate.h */,
