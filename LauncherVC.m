@@ -35,9 +35,14 @@
     self.view.frame = frame;
     //[self.view addSubview:_backgroundView];
     
+    NSMutableArray *applications = FileManagerInstantiateApps();
     //ApplicationsData *applicationsData = [ApplicationsData sharedData];
-    //int numberOfPages = applicationsData->_applicationsPages.count;
-    //DLog(@"numberOfPages: %d", numberOfPages);
+    int numberOfAppsPerPage = 6 * 4;
+    int numberOfPages = applications.count / numberOfAppsPerPage + 1;//applicationsData->_applicationsPages.count;
+    if (applications.count % numberOfAppsPerPage > 0) {
+        numberOfPages++;
+    }
+    DLog(@"numberOfPages: %d", numberOfPages);
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
                                                                    frame.size.width, _kUIPageControlHeight)];
     _pageControl.numberOfPages = numberOfPages;
@@ -48,9 +53,12 @@
                      action:@selector(pageControlValueChanged:)
            forControlEvents:UIControlEventValueChanged];
     
+    
     _launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
     _launcherView.delegate = self;
+    _launcherView.applications = applications;
     //DLog();
+    [applications release];
     [self.view addSubview:_launcherView];
     return;
 }
