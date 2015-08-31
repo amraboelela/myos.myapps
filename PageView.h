@@ -15,14 +15,10 @@
  Amr Aboelela <amraboelela@gmail.com>
  */
 
-//#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
-//#import "ApplicationsPage.h"
 
 @interface PageView : UIView {
 @package
-    //ApplicationsPage *_applicationsPage;
     NSMutableArray *_allApplications;
     NSArray *_sortDescriptors;
     int _startingIndex;
@@ -35,8 +31,6 @@
 
 - (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications scoreDescriptors:(NSArray *)scoreDescriptors andStartingIndex:(int)startingIndex;
 
-//andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView;
-
 @end
 
-void PageViewLoadIcons(PageView *pageView);
+//void PageViewLoadIcons(PageView *pageView);

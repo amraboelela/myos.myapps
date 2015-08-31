@@ -18,7 +18,6 @@
 #import <UIKit/UIKit-private.h>
 #import "PageView.h"
 #import "LauncherView.h"
-//#import "ApplicationsData.h"
 
 #define _kIconWidth                 80
 #define _kIconHeight                92

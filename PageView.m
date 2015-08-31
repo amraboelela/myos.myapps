@@ -39,18 +39,18 @@
         for (UIChildApplication *application in applications) {
             //DLog(@"application: %p", application);
             if (application != [NSNull null]) {
-                //DLog(@"application: %@", application);
+                DLog(@"application: %@", application);
                 UIApplicationIcon *icon = application->_applicationIcon;
-                //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
                 //DLog(@"application.yLocation: %d", application.yLocation);
                 icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
                                         icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
+                DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
                 icon.parentScrollView = scrollView;
                 [self addSubview:icon];
             }
         }
         //}
-        //DLog(@"self: %@", self);
+        DLog(@"self: %@", self);
     }
     return self;
 }
@@ -83,10 +83,10 @@
 
 @end
 
+/*
 #pragma mark - Shared functions
 
 void PageViewLoadIcons(PageView *pageView)
 {
     
-}
-
+}*/
