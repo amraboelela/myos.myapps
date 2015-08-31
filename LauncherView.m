@@ -26,6 +26,8 @@
 
 @implementation LauncherView
 
+@synthesize applications = _applications;
+
 #pragma mark - Life cycle
 
 - (id)initWithFrame:(CGRect)theFrame
@@ -34,7 +36,7 @@
     if (self) {
         _applications = FileManagerInstantiateApps();
         NSSortDescriptor *scoreDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"score" ascending:NO];
-        self.scoreDescriptors = [NSArray arrayWithObjects:scoreDescriptor, nil];
+        NSArray *scoreDescriptors = [NSArray arrayWithObjects:scoreDescriptor, nil];
         
         //ApplicationsData *applicationsData = [ApplicationsData sharedData];
         int numberOfPages = [self numberOfPages];//applicationsData->_applicationsPages.count;
@@ -48,7 +50,7 @@
                                                  self.frame.size.width, self.frame.size.height)
                         scrollView:self
                         applications:_applications
-                        scoreDescriptors:_scoreDescriptors
+                        scoreDescriptors:scoreDescriptors
                         andStartingIndex:0];
             [self addSubview:pageView];
             [pageView release];

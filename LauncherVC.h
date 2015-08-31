@@ -22,8 +22,8 @@
 @interface LauncherVC : UIViewController <UIScrollViewDelegate> {
 @package
 //    UIImageView *_backgroundView;
-//    UIPageControl *_pageControl;
-//    LauncherView *_launcherView;
+    UIPageControl *_pageControl;
+    LauncherView *_launcherView;
 }
 
 - (void)gotoHomepage;

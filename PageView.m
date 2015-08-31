@@ -27,7 +27,7 @@
 #pragma mark - Life cycle
 
 //- (id)initWithFrame:(CGRect)theFrame andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView
-- (id)initWithFrame:(CGRect)theFrame parentScrollView:(UIScrollView *)parentScrollView applications:(NSMutableArray *)applications scoreDescriptors:(NSArray *)scoreDescriptors andStartingIndex:(int)startingIndex
+- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications scoreDescriptors:(NSArray *)scoreDescriptors andStartingIndex:(int)startingIndex
 {
     self = [super initWithFrame:theFrame];
     if (self) {
@@ -45,7 +45,7 @@
                 //DLog(@"application.yLocation: %d", application.yLocation);
                 icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
                                         icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
-                icon.parentScrollView = parentScrollView;
+                icon.parentScrollView = scrollView;
                 [self addSubview:icon];
             }
         }

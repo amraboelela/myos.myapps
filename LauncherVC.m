@@ -35,34 +35,34 @@
     self.view.frame = frame;
     
     NSMutableArray *applications = FileManagerInstantiateApps();
-    LauncherView *launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
-    launcherView.delegate = self;
-    launcherView.applications = applications;
+    _launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
+    _launcherView.delegate = self;
+    _launcherView.applications = applications;
     
-    DLog(@"numberOfPages: %d", [launcherView numberOfPages]);
-    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
+    DLog(@"numberOfPages: %d", [_launcherView numberOfPages]);
+    _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
                                                                                  frame.size.width, _kUIPageControlHeight)];
-    pageControl.numberOfPages = [launcherView numberOfPages];
-    pageControl.currentPage = 0;
+    _pageControl.numberOfPages = [_launcherView numberOfPages];
+    _pageControl.currentPage = 0;
     [self.view addSubview:_pageControl];
     
-    [pageControl addTarget:self
+    [_pageControl addTarget:self
                     action:@selector(pageControlValueChanged:)
           forControlEvents:UIControlEventValueChanged];
     
     [applications release];
-    [self.view addSubview:launcherView];
-    [pageControl release];
-    [launcherView release];
+    [self.view addSubview:_launcherView];
+    //[pageControl release];
+    //[launcherView release];
     return;
 }
 
 - (void)dealloc
 {
     //[_backgroundView release];
-    //[_pageControl release];
+    [_pageControl release];
     //[_scrollView release];
-    //[_launcherView release];
+    [_launcherView release];
     [super dealloc];
 }
 
