@@ -34,23 +34,25 @@
         //_applicationsPage = applicationsPage;
         //_applicationsPage->_delegate = self;
         //for (NSArray *row in _applicationsPage->_applications) {
+        //self.backgroundColor = [UIColor grayColor];
         int xLocation = 0;
         int yLocation = 0;
         for (UIChildApplication *application in applications) {
             //DLog(@"application: %p", application);
             if (application != [NSNull null]) {
-                DLog(@"application: %@", application);
+                //DLog(@"application: %@", application);
                 UIApplicationIcon *icon = application->_applicationIcon;
                 //DLog(@"application.yLocation: %d", application.yLocation);
                 icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
                                         icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
-                DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
+                //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
+                DLog(@"icon: %@", icon);
                 icon.parentScrollView = scrollView;
                 [self addSubview:icon];
             }
         }
         //}
-        DLog(@"self: %@", self);
+        //DLog(@"self: %@", self);
     }
     return self;
 }

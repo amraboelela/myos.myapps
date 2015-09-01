@@ -43,7 +43,7 @@
         self.contentSize = CGSizeMake(theFrame.size.width * numberOfPages, theFrame.size.height);
         self.pagingEnabled = YES;
         //DLog(@"numberOfPages: %d", numberOfPages);
-        for (int i=0; i<numberOfPages; i++) {
+        for (int i=0; i<1; i++) {
             pageView = [[PageView alloc]
                         initWithFrame:CGRectMake(self.frame.origin.x + i * self.frame.size.width, self.frame.origin.y,
                                                  self.frame.size.width, self.frame.size.height)
@@ -56,6 +56,7 @@
         };
         //pageView.center = CGPointMake(pageView.center.x, pageView.center.y);
         //DLog();
+        //self.backgroundColor = [UIColor yellowColor];
     }
     return self;
 }
