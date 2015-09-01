@@ -43,14 +43,13 @@
         self.contentSize = CGSizeMake(theFrame.size.width * numberOfPages, theFrame.size.height);
         self.pagingEnabled = YES;
         //DLog(@"numberOfPages: %d", numberOfPages);
-        for (int i=0; i<1; i++) {
+        for (int i=0; i<numberOfPages; i++) {
             pageView = [[PageView alloc]
                         initWithFrame:CGRectMake(self.frame.origin.x + i * self.frame.size.width, self.frame.origin.y,
                                                  self.frame.size.width, self.frame.size.height)
                         scrollView:self
                         applications:_applications
-                        scoreDescriptors:scoreDescriptors
-                        andStartingIndex:0];
+                        pageNumber:i];
             [self addSubview:pageView];
             [pageView release];
         };

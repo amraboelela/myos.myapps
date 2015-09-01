@@ -26,7 +26,7 @@
 
 #pragma mark - Life cycle
 
-- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications pabeNumber:(int)pabeNumber
+- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications pageNumber:(int)pageNumber
 {
     self = [super initWithFrame:theFrame];
     if (self) {
@@ -40,7 +40,7 @@
                 UIApplicationIcon *icon;
                 if (pageNumber == 0) {
                     icon = application.homeIcon;
-                    icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (6-yLocation),
+                    icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (5-yLocation),
                                             icon.frame.size.width, icon.frame.size.height);
                 } else {
                     icon = application->_applicationIcon;
