@@ -17,7 +17,7 @@
 
 #import "LauncherVC.h"
 #import "LauncherView.h"
-#import "ApplicationsData.h"
+//#import "ApplicationsData.h"
 
 #define _kUIPageControlHeight       20
 
@@ -29,35 +29,37 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];// colorWithRed:0.0 green:100.0/255.0 blue:0.0 alpha:1.0];
-
+    
     CGRect frame = self.view.frame;
     self.view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.png"]] autorelease];
     self.view.frame = frame;
-    //[self.view addSubview:_backgroundView];
     
-    ApplicationsData *applicationsData = [ApplicationsData sharedData];
-    int numberOfPages = applicationsData->_applicationsPages.count;
-    DLog(@"numberOfPages: %d", numberOfPages);
+    NSMutableArray *applications = FileManagerInstantiateApps();
+    _launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
+    _launcherView.delegate = self;
+    _launcherView.applications = applications;
+    
+    DLog(@"numberOfPages: %d", [_launcherView numberOfPages]);
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
-                                                                   frame.size.width, _kUIPageControlHeight)];
-    _pageControl.numberOfPages = numberOfPages;
+                                                                                 frame.size.width, _kUIPageControlHeight)];
+    _pageControl.numberOfPages = [_launcherView numberOfPages];
     _pageControl.currentPage = 0;
     [self.view addSubview:_pageControl];
     
     [_pageControl addTarget:self
-                     action:@selector(pageControlValueChanged:)
-           forControlEvents:UIControlEventValueChanged];
+                    action:@selector(pageControlValueChanged:)
+          forControlEvents:UIControlEventValueChanged];
     
-    _launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
-    _launcherView.delegate = self;
-    //DLog();
+    [applications release];
     [self.view addSubview:_launcherView];
+    //[pageControl release];
+    //[launcherView release];
     return;
 }
 
 - (void)dealloc
 {
-    [_backgroundView release];
+    //[_backgroundView release];
     [_pageControl release];
     //[_scrollView release];
     [_launcherView release];

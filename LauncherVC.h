@@ -21,7 +21,7 @@
 
 @interface LauncherVC : UIViewController <UIScrollViewDelegate> {
 @package
-    UIImageView *_backgroundView;
+//    UIImageView *_backgroundView;
     UIPageControl *_pageControl;
     LauncherView *_launcherView;
 }

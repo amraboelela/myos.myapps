@@ -25,13 +25,11 @@ endif
 
 OBJECTS = \
     AppDelegate.o \
-    ApplicationsPage.o \
     LauncherVC.o \
     LauncherView.o \
     PageView.o \
     LoadingScreenVC.o \
     FileManager.o \
-    ApplicationsData.o \
 
 include ${MYOS_PATH}/sdk/app-makefile
 

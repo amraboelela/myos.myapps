@@ -1,5 +1,5 @@
 /*
- Copyright © 2014 myOS Group.
+ Copyright © 2014-2015 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -15,15 +15,22 @@
  Amr Aboelela <amraboelela@gmail.com>
  */
 
-#import "ApplicationsPage.h"
+#import <UIKit/UIKit.h>
 
 @interface PageView : UIView {
 @package
-    ApplicationsPage *_applicationsPage;
+    NSMutableArray *_allApplications;
+    NSArray *_sortDescriptors;
+    int _startingIndex;
+    NSMutableArray *_pageApplications;
 }
 
-- (id)initWithFrame:(CGRect)theFrame andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView;
+@property (nonatomic, retain) NSMutableArray *allApplications;
+@property (nonatomic, retain) NSArray *sortDescriptors;
+@property (nonatomic, retain) NSMutableArray *pageApplications;
+
+- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications pageNumber:(int)pageNumber;
 
 @end
 
-void PageViewLoadIcons(PageView *pageView);
+//void PageViewLoadIcons(PageView *pageView);
