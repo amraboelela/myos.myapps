@@ -26,30 +26,33 @@
 
 #pragma mark - Life cycle
 
-//- (id)initWithFrame:(CGRect)theFrame andApplicationsPage:(ApplicationsPage *)applicationsPage andParentScrollView:(UIScrollView *)parentScrollView
-- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications scoreDescriptors:(NSArray *)scoreDescriptors andStartingIndex:(int)startingIndex
+- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications pabeNumber:(int)pabeNumber
 {
     self = [super initWithFrame:theFrame];
     if (self) {
-        //_applicationsPage = applicationsPage;
-        //_applicationsPage->_delegate = self;
-        //for (NSArray *row in _applicationsPage->_applications) {
         int xLocation = 0;
         int yLocation = 0;
         for (UIChildApplication *application in applications) {
             //DLog(@"application: %p", application);
             if (application != [NSNull null]) {
                 DLog(@"application: %@", application);
-                UIApplicationIcon *icon = application->_applicationIcon;
                 //DLog(@"application.yLocation: %d", application.yLocation);
-                icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
-                                        icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
+                UIApplicationIcon *icon;
+                if (pageNumber == 0) {
+                    icon = application.homeIcon;
+                    icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (6-yLocation),
+                                            icon.frame.size.width, icon.frame.size.height);
+                } else {
+                    icon = application->_applicationIcon;
+                    icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
+                                            icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
+                    
+                }
                 DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
                 icon.parentScrollView = scrollView;
                 [self addSubview:icon];
             }
         }
-        //}
         DLog(@"self: %@", self);
     }
     return self;
