@@ -79,4 +79,3 @@ NSMutableArray *FileManagerInstantiateApps()
     //DLog();
     return apps;
 }
-
