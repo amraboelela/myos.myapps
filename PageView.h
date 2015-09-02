@@ -34,3 +34,7 @@
 @end
 
 //void PageViewLoadIcons(PageView *pageView);
+
+int PageViewNumberOfColumnsPerPage();
+int PageViewNumberOfRowsPerPage();
+int PageViewNumberOfAppsPerPage();

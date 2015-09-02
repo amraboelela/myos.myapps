@@ -86,10 +86,19 @@
 
 @end
 
-/*
-#pragma mark - Shared functions
+#pragma mark - Public functions
 
-void PageViewLoadIcons(PageView *pageView)
+int PageViewNumberOfColumnsPerPage()
 {
-    
-}*/
+    return 4;
+}
+
+int PageViewNumberOfRowsPerPage()
+{
+    return 6;
+}
+
+int PageViewNumberOfAppsPerPage()
+{
+    return PageViewNumberOfColumnsPerPage() * PageViewNumberOfRowsPerPage();
+}

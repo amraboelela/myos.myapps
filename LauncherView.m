@@ -70,7 +70,7 @@
 
 - (int)numberOfPages
 {
-    int numberOfAppsPerPage = 6 * 4;
+    int numberOfAppsPerPage = PageViewNumberOfAppsPerPage();
     int result = self.applications.count / numberOfAppsPerPage + 1;
     if (self.applications.count % numberOfAppsPerPage > 0) {
         result++;
