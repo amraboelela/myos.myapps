@@ -35,7 +35,7 @@
         for (UIChildApplication *application in applications) {
             //DLog(@"application: %p", application);
             if (application != [NSNull null]) {
-                DLog(@"application: %@", application);
+                //DLog(@"application: %@", application);
                 //DLog(@"application.yLocation: %d", application.yLocation);
                 UIApplicationIcon *icon;
                 if (pageNumber == 0) {
@@ -48,12 +48,12 @@
                                             icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
                     
                 }
-                DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
+                //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
                 icon.parentScrollView = scrollView;
                 [self addSubview:icon];
             }
         }
-        DLog(@"self: %@", self);
+        //DLog(@"self: %@", self);
     }
     return self;
 }

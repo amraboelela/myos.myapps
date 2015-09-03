@@ -39,7 +39,7 @@
     _launcherView.delegate = self;
     _launcherView.applications = applications;
     
-    DLog(@"numberOfPages: %d", [_launcherView numberOfPages]);
+    //DLog(@"numberOfPages: %d", [_launcherView numberOfPages]);
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
                                                                                  frame.size.width, _kUIPageControlHeight)];
     _pageControl.numberOfPages = [_launcherView numberOfPages];
