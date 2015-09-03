@@ -30,28 +30,37 @@
 {
     self = [super initWithFrame:theFrame];
     if (self) {
+        int count = 0;
         int xLocation = 0;
         int yLocation = 0;
+        DLog(@"pageNumber: %d", pageNumber);
         for (UIChildApplication *application in applications) {
-            //DLog(@"application: %p", application);
-            if (application != [NSNull null]) {
-                //DLog(@"application: %@", application);
-                //DLog(@"application.yLocation: %d", application.yLocation);
-                UIApplicationIcon *icon;
-                if (pageNumber == 0) {
-                    icon = application.homeIcon;
-                    icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (5-yLocation),
-                                            icon.frame.size.width, icon.frame.size.height);
-                } else {
-                    icon = application->_applicationIcon;
-                    icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
-                                            icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
+            if (count > PageViewNumberOfAppsPerPage()) {
+                break;
+            } 
+            DLog(@"application: %@", application);
+            xLocation = count % PageViewNumberOfColumnsPerPage();
+            yLocation = count / PageViewNumberOfColumnsPerPage();
+
+            //if (application != [NSNull null]) {
+            //DLog(@"application: %@", application);
+            //DLog(@"application.yLocation: %d", application.yLocation);
+            UIApplicationIcon *icon;
+            if (pageNumber == 0) {
+                icon = application.homeIcon;
+                icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (5-yLocation),
+                                        icon.frame.size.width, icon.frame.size.height);
+            } else {
+                icon = application->_applicationIcon;
+                icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
+                                        icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
                     
-                }
-                //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
-                icon.parentScrollView = scrollView;
-                [self addSubview:icon];
             }
+            //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
+            icon.parentScrollView = scrollView;
+            [self addSubview:icon];
+            //}
+            count++;
         }
         //DLog(@"self: %@", self);
     }
@@ -102,3 +111,4 @@ int PageViewNumberOfAppsPerPage()
 {
     return PageViewNumberOfColumnsPerPage() * PageViewNumberOfRowsPerPage();
 }
+
