@@ -33,12 +33,12 @@
         int count = 0;
         int xLocation = 0;
         int yLocation = 0;
-        DLog(@"pageNumber: %d", pageNumber);
-        for (UIChildApplication *application in applications) {
+        //DLog(@"pageNumber: %d", pageNumber);
+        for (UIChildApplicationProxy *application in applications) {
             if (count > PageViewNumberOfAppsPerPage()) {
                 break;
             } 
-            DLog(@"application: %@", application);
+            //DLog(@"application: %@", application);
             xLocation = count % PageViewNumberOfColumnsPerPage();
             yLocation = count / PageViewNumberOfColumnsPerPage();
 
@@ -81,12 +81,12 @@
 
 #pragma mark - Delegates
 
-- (void)applicationWillMove:(UIChildApplication *)application
+- (void)applicationWillMove:(UIChildApplicationProxy *)application
 {
     
 }
 
-- (void)applicationDidMove:(UIChildApplication *)application
+- (void)applicationDidMove:(UIChildApplicationProxy *)application
 {
     
 }
