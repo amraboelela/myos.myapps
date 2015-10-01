@@ -65,12 +65,12 @@ NSMutableArray *FileManagerInstantiateApps()
     NSString *filePath = [NSString stringWithFormat:@"%@/apps", _NSFileManagerMyAppsPath()];
     NSArray *directories = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:filePath error:NULL];
     //DLog(@"directories: %@", directories);
-    UIChildApplication *childApp;
+    UIChildApplicationProxy *childApp;
     int numberOfApps = directories.count;
     for (NSString *directory in directories) {
         NSString *bundleName  = [directory stringByReplacingOccurrencesOfString:@".app" withString:@""];
         //DLog(@"bundleName: %@", bundleName);
-        childApp = [[UIChildApplication alloc] initWithBundleName:bundleName];
+        childApp = [[UIChildApplicationProxy alloc] initWithBundleName:bundleName];
         long childAppPointer = (long)childApp;
         childApp.score = (rand()/2 + childAppPointer) % numberOfApps;
         [apps addObject:childApp];
