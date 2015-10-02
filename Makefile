@@ -17,11 +17,11 @@
 
 LDLIBS=-lFoundation
 
-ifeq ($(APP_TYPE),NativeApp)
+#ifeq ($(APP_TYPE),NativeApp)
     LDLIBS+=-lNAOpenGLES -lNAUIKit -lNACoreGraphics -lNAQuartzCore -lNAIOKit
-else
-    LDLIBS+=-lOpenGLES -lUIKit -lCoreGraphics -lQuartzCore -IOKit
-endif
+#else
+#    LDLIBS+=-lOpenGLES -lUIKit -lCoreGraphics -lQuartzCore -IOKit
+#endif
 
 OBJECTS = \
     AppDelegate.o \
@@ -30,6 +30,7 @@ OBJECTS = \
     PageView.o \
     LoadingScreenVC.o \
     FileManager.o \
+    FooterView.o \
 
 include ${MYOS_PATH}/sdk/app-makefile
 
