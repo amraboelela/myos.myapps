@@ -17,7 +17,7 @@
 
 #import "AppDelegate.h"
 #import "FileManager.h"
-#import <UIKit/UIKit-private.h>
+//#import <UIKit/UIKit-private.h>
 
 @implementation AppDelegate
 
@@ -39,9 +39,8 @@
 {
     FileManagerSetupDirectories();
     //DLog();
-    CGRect frame = [UIScreen mainScreen] bounds];
-    frame.size.height -= _kScreenFooter;
-    self.window = [[[UIWindow alloc] initWithFrame:frame autorelease];
+    CGRect frame = [[UIScreen mainScreen] bounds];
+    self.window = [[[UIWindow alloc] initWithFrame:frame] autorelease];
     //_launcherVC = [[LauncherVC alloc] init];
     _loadingScreenVC = [[LoadingScreenVC alloc] init];
     
