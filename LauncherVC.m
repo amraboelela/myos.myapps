@@ -15,7 +15,6 @@
  Amr Aboelela <amraboelela@gmail.com>
  */
 
-#import <UIKit/UIKit-private.h>
 #import "LauncherVC.h"
 #import "LauncherView.h"
 //#import "ApplicationsData.h"
@@ -31,12 +30,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];// colorWithRed:0.0 green:100.0/255.0 blue:0.0 alpha:1.0];
 
-    CGRect frame = self.view.frame;//[[UIScreen mainScreen] bounds];
-    //DLog(@"frame1: %@", NSStringFromCGRect(frame));
-    frame.size.height -= _kScreenFooter;
-    //DLog(@"frame2: %@", NSStringFromCGRect(frame));
-    //self.view.frame = frame;
-    //CGRect frame = self.view.frame;
+    CGRect frame = self.view.frame;
     self.view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.png"]] autorelease];
     self.view.frame = frame;
     
