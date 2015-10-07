@@ -27,7 +27,6 @@
 
 - (void)dealloc
 {
-    //DLog();
     [_window release];
     [_launcherVC release];
     [super dealloc];
@@ -38,30 +37,26 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     FileManagerSetupDirectories();
-    //DLog();
     CGRect frame = [[UIScreen mainScreen] bounds];
     self.window = [[[UIWindow alloc] initWithFrame:frame] autorelease];
     //_launcherVC = [[LauncherVC alloc] init];
-    _loadingScreenVC = [[LoadingScreenVC alloc] init];
+    //_loadingScreenVC = [[LoadingScreenVC alloc] init];
     
-    [_window addSubview:_loadingScreenVC.view];
+    //[_window addSubview:_loadingScreenVC.view];
     [_window makeKeyAndVisible];
     
     //DLog(@"self: %@", self);
     [self performSelector:@selector(loadViews) withObject:nil afterDelay:0.01];
-    //DLog();
     return YES;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    //DLog();
     [_launcherVC gotoHomepage];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    //DLog();
 }
 
 #pragma mark - Helpers
@@ -73,11 +68,11 @@
     //DLog();
     [_window addSubview:_launcherVC.view];
     //DLog();
-    [_loadingScreenVC.view removeFromSuperview];
+    //[_loadingScreenVC.view removeFromSuperview];
     //DLog();
-    [_loadingScreenVC release];
+    //[_loadingScreenVC release];
     //DLog();
-    _loadingScreenVC = nil;
+    //_loadingScreenVC = nil;
     //UIParentApplicationLauncherViewDidAdded();
     //DLog();
     //DLog(@"self: %@", self);
