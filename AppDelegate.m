@@ -17,7 +17,7 @@
 
 #import "AppDelegate.h"
 #import "FileManager.h"
-#import "FooterView.h"
+//#import <UIKit/UIKit-private.h>
 
 @implementation AppDelegate
 
@@ -40,7 +40,7 @@
     FileManagerSetupDirectories();
     //DLog();
     CGRect frame = [[UIScreen mainScreen] bounds];
-    _window = [[UIWindow alloc] initWithFrame:frame];
+    self.window = [[[UIWindow alloc] initWithFrame:frame] autorelease];
     //_launcherVC = [[LauncherVC alloc] init];
     _loadingScreenVC = [[LoadingScreenVC alloc] init];
     
@@ -81,11 +81,7 @@
     //UIParentApplicationLauncherViewDidAdded();
     //DLog();
     //DLog(@"self: %@", self);
-    
-    FooterView *footerView = [[FooterView alloc] init];
-    [_window addSubview:footerView];
-    //DLog();
-    [footerView release];
 }
 
 @end
+
