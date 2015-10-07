@@ -26,8 +26,8 @@
 {
     self = [super init];
     if (self) {
-        DLog();
-        self.backgroundColor = [UIColor lightGrayColor];
+        //DLog();
+        self.backgroundColor = [UIColor whiteColor];
         CGRect frame = [[UIScreen mainScreen] bounds];
         frame.origin.y = frame.size.height - _kScreenFooter;
         frame.size.height = _kScreenFooter;
