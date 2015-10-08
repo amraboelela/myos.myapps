@@ -17,10 +17,11 @@
 
 #import "FooterView.h"
 #import <UIKit/UIKit-private.h>
+#import <QuartzCore/QuartzCore.h>
 
-#define ButtonWidth         100
-#define ButtonHeight        20
-#define ButtonsInterSpace   30
+#define ButtonWidth         90
+#define ButtonHeight        25
+#define ButtonsInterSpace   20
 
 @implementation FooterView
 
@@ -39,24 +40,26 @@
         //float homeButtonWidth = 100;
         UIButton *homeButton = [UIButton buttonWithType:UIButtonTypeSystem];
         homeButton.frame = CGRectMake((self.frame.size.width - ButtonWidth * 2 - ButtonsInterSpace) / 2.0 + ButtonWidth + ButtonsInterSpace, (self.frame.size.height - ButtonHeight) / 2.0, ButtonWidth, ButtonHeight);
-        homeButton.backgroundColor = [UIColor greenColor];
+        //homeButton.backgroundColor = [UIColor greenColor];
         //homeButton.layer.borderColor = [[UIColor colorWithRed:50.0/255.0 green:50.0/255.0 blue:200.0/255.0 alpha:1.0] CGColor];
         //homeButton.layer.borderWidth = 1;
-        homeButton.layer.cornerRadius = 7;
-        homeButton.layer.masksToBounds = YES;
+        //homeButton.layer.cornerRadius = 7;
+        //homeButton.layer.masksToBounds = YES;
         //homeButton.titleLabel.font = [UIFont systemFontOfSize:20];
         [homeButton setTitle:@"Home" forState:UIControlStateNormal];
         
-        //[button addTarget:self action:@selector(clickedButton:) forControlEvents:UIControlEventTouchDown];
-        //[button addTarget:self action:@selector(unClickButton:) forControlEvents:UIControlEventTouchUpInside];
+        //[homeButton addTarget:self action:@selector(clickedButton:) forControlEvents:UIControlEventTouchDown];
+        [homeButton addTarget:self action:@selector(homeButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:homeButton];
         
         
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
         backButton.frame = CGRectMake((self.frame.size.width - ButtonWidth * 2 - ButtonsInterSpace) / 2.0, (self.frame.size.height - ButtonHeight) / 2.0, ButtonWidth, ButtonHeight);
-        backButton.backgroundColor = [UIColor greenColor];
-        backButton.layer.cornerRadius = 7;
+        //backButton.backgroundColor = [UIColor clearColor];
+        //backButton.layer.cornerRadius = 7;
+        //backButton.layer.masksToBounds = YES;
         [backButton setTitle:@"Back" forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:backButton];
     }
     return self;
@@ -74,6 +77,16 @@
 #pragma mark - Delegates
 
 #pragma mark - Actions
+
+- (void)homeButtonClicked:(id)sender
+{
+    DLog(@"sender: %@", sender);
+}
+
+- (void)backButtonClicked:(id)sender
+{
+    DLog(@"sender: %@", sender);
+}
 
 @end
 
