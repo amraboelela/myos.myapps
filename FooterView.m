@@ -38,14 +38,14 @@
         self.frame = frame;
         //float homeButtonWidth = 100;
         UIButton *homeButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        self.homeButton.frame = CGRectMake((self.frame.size.width - ButtonWidth * 2 - ButtonsInterSpace) / 2.0 + ButtonWidth + ButtonsInterSpace, (self.frame.size.height - ButtonHeight) / 2.0, ButtonWidth, ButtonHeight);
-        self.homeButton.backgroundColor = [UIColor greenColor];
-        //self.homeButton.layer.borderColor = [[UIColor colorWithRed:50.0/255.0 green:50.0/255.0 blue:200.0/255.0 alpha:1.0] CGColor];
-        //self.homeButton.layer.borderWidth = 1;
-        self.homeButton.layer.cornerRadius = 7;
-        self.homeButton.layer.masksToBounds = YES;
-        //self.homeButton.titleLabel.font = [UIFont systemFontOfSize:20];
-        [self.homeButton setTitle:@"Home" forState:UIControlStateNormal];
+        homeButton.frame = CGRectMake((self.frame.size.width - ButtonWidth * 2 - ButtonsInterSpace) / 2.0 + ButtonWidth + ButtonsInterSpace, (self.frame.size.height - ButtonHeight) / 2.0, ButtonWidth, ButtonHeight);
+        homeButton.backgroundColor = [UIColor greenColor];
+        //homeButton.layer.borderColor = [[UIColor colorWithRed:50.0/255.0 green:50.0/255.0 blue:200.0/255.0 alpha:1.0] CGColor];
+        //homeButton.layer.borderWidth = 1;
+        homeButton.layer.cornerRadius = 7;
+        homeButton.layer.masksToBounds = YES;
+        //homeButton.titleLabel.font = [UIFont systemFontOfSize:20];
+        [homeButton setTitle:@"Home" forState:UIControlStateNormal];
         
         //[button addTarget:self action:@selector(clickedButton:) forControlEvents:UIControlEventTouchDown];
         //[button addTarget:self action:@selector(unClickButton:) forControlEvents:UIControlEventTouchUpInside];
@@ -53,12 +53,10 @@
         
         
         UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        self.backButton.frame = CGRectMake((self.frame.size.width - ButtonWidth * 2 - ButtonsInterSpace) / 2.0, (self.frame.size.height - ButtonHeight) / 2.0, ButtonWidth, ButtonHeight);
-        self.backButton.backgroundColor = [UIColor greenColor];
-        self.backButton.layer.cornerRadius = 7;
-        //self.backButton.layer.masksToBounds = YES;
-        //self.homeButton.titleLabel.font = [UIFont systemFontOfSize:20];
-        [self.backButton setTitle:@"Back" forState:UIControlStateNormal];
+        backButton.frame = CGRectMake((self.frame.size.width - ButtonWidth * 2 - ButtonsInterSpace) / 2.0, (self.frame.size.height - ButtonHeight) / 2.0, ButtonWidth, ButtonHeight);
+        backButton.backgroundColor = [UIColor greenColor];
+        backButton.layer.cornerRadius = 7;
+        [backButton setTitle:@"Back" forState:UIControlStateNormal];
         [self addSubview:backButton];
     }
     return self;
