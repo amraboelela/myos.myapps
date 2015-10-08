@@ -34,6 +34,8 @@
 		F575462A19CC841B000DDF29 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		F575462B19CC841B000DDF29 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		F5782ADD1BBEFFD700663E78 /* FooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
+		F5782ADE1BBEFFD700663E78 /* FooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 		F58B52391B5DA53F00E7F9D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F5F5F66F1B57246400285921 /* NAObj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NAObj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +52,8 @@
 				F575461219CC841B000DDF29 /* commands.xml */,
 				F575461319CC841B000DDF29 /* FileManager.h */,
 				F575461419CC841B000DDF29 /* FileManager.m */,
+				F5782ADD1BBEFFD700663E78 /* FooterView.h */,
+				F5782ADE1BBEFFD700663E78 /* FooterView.m */,
 				F575461719CC841B000DDF29 /* jni */,
 				F575461819CC841B000DDF29 /* LauncherVC.h */,
 				F575461919CC841B000DDF29 /* LauncherVC.m */,

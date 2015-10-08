@@ -26,8 +26,13 @@
 {
     self = [super init];
     if (self) {
+<<<<<<< HEAD
         //DLog();
         self.backgroundColor = [UIColor whiteColor];
+=======
+        DLog();
+        self.backgroundColor = [UIColor lightGrayColor];
+>>>>>>> parent of 7a47134... Revert "@implementation FooterView"
         CGRect frame = [[UIScreen mainScreen] bounds];
         frame.origin.y = frame.size.height - _kScreenFooter;
         frame.size.height = _kScreenFooter;
