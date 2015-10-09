@@ -81,6 +81,7 @@
 - (void)homeButtonClicked:(id)sender
 {
     DLog(@"sender: %@", sender);
+    UIParentApplicationShowLauncher();
 }
 
 - (void)backButtonClicked:(id)sender
