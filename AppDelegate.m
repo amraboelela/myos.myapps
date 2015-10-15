@@ -52,7 +52,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [_launcherVC gotoHomepage];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:_launcherVC selector:@selector(gotoHomepage) userInfo:nil repeats:NO];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
