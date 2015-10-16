@@ -87,7 +87,7 @@
 
 - (void)backButtonClicked:(id)sender
 {
-    DLog(@"sender: %@", sender);
+    //DLog(@"sender: %@", sender);
     UIParentApplicationGoBack();
 }
 
