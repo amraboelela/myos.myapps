@@ -52,6 +52,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    DLog();
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:_launcherVC selector:@selector(gotoHomepage) userInfo:nil repeats:NO];
 }
 

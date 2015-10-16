@@ -80,8 +80,9 @@
 
 - (void)homeButtonClicked:(id)sender
 {
-    DLog(@"sender: %@", sender);
+    //DLog(@"sender: %@", sender);
     UIParentApplicationShowLauncher();
+    //UIParentApplicationTerminateApps();
 }
 
 - (void)backButtonClicked:(id)sender
@@ -108,3 +109,4 @@ int PageViewNumberOfAppsPerPage()
 {
     return PageViewNumberOfColumnsPerPage() * PageViewNumberOfRowsPerPage();
 }*/
+

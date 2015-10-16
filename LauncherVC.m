@@ -82,6 +82,7 @@
 
 - (void)gotoHomepage
 {
+    DLog();
     _pageControl.currentPage = 0;
     _launcherView.contentOffset = CGPointMake(0, _launcherView.contentOffset.y);
 }
