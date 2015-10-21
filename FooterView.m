@@ -25,6 +25,8 @@
 
 @implementation FooterView
 
+@synthesize delegate=_delegate;
+
 #pragma mark - Life cycle
 
 - (id)init

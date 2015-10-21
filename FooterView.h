@@ -23,6 +23,7 @@
     //NSArray *_sortDescriptors;
     //int _startingIndex;
     //NSMutableArray *_pageApplications;
+    id _delegate;
 }
 
 @property (nonatomic, assign) id delegate;
