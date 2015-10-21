@@ -84,7 +84,12 @@
 {
     //DLog(@"sender: %@", sender);
     UIParentApplicationShowLauncher();
+    
+    [UIView beginAnimations:@"move1" context:nil];
+    [UIView setAnimationDuration:0.2];
     [self.delegate homeButtonClicked:self];
+    [UIView commitAnimations];
+    
     //UIParentApplicationTerminateApps();
 }
 

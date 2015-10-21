@@ -28,10 +28,6 @@
 
 @property (nonatomic, assign) id delegate;
 
-//@property (nonatomic, retain) NSMutableArray *allApplications;
-//@property (nonatomic, retain) NSArray *sortDescriptors;
-//@property (nonatomic, retain) NSMutableArray *pageApplications;
-
 //- (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications pageNumber:(int)pageNumber;
 
 @end
