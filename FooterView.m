@@ -82,6 +82,7 @@
 {
     //DLog(@"sender: %@", sender);
     UIParentApplicationShowLauncher();
+    [self.delegate homeButtonClicked:self];
     //UIParentApplicationTerminateApps();
 }
 

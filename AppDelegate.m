@@ -52,12 +52,17 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    //DLog();
+    DLog();
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:_launcherVC selector:@selector(gotoHomepage) userInfo:nil repeats:NO];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+}
+
+- (void)homeButtonClicked:(id)sender
+{
+    [_launcherVC gotoHomepage];
 }
 
 #pragma mark - Helpers
@@ -79,6 +84,7 @@
     //DLog(@"self: %@", self);
     
     FooterView *footerView = [[FooterView alloc] init];
+    footerView.delegate = self;
     [_window addSubview:footerView];
     //DLog();
     [footerView release];
