@@ -1,5 +1,5 @@
 #
-# Copyright © 2014-2015 myOS Group.
+# Copyright © 2015 myOS Group.
 #
 # This is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -15,9 +15,6 @@
 # Amr Aboelela <amraboelela@gmail.com>
 #
 
-# Copy this file to config.sh When your target is ChildApp
-
-#This means it is a ChildApp running from inside myApps
-export APP_TYPE=ChildApp
+# Copy this file to config.sh When you are in debug mode
 
 export DEBUG_MODE=YES

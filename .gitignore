@@ -7,3 +7,4 @@ gen
 local.properties
 config.sh
 apps
+.DS_Store

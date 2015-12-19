@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXFileReference section */
+		C5EFDCB71C2618A7007746A7 /* config.sh.debug */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.sh.debug; sourceTree = "<group>"; };
+		C5EFDCB81C2618A7007746A7 /* config.sh.release */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.sh.release; sourceTree = "<group>"; };
 		F533FEE41A11839700627384 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		F575460919CC841B000DDF29 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
 		F575460A19CC841B000DDF29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -32,7 +34,6 @@
 		F575462819CC841B000DDF29 /* rd_main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rd_main.m; sourceTree = "<group>"; };
 		F575462919CC841B000DDF29 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		F575462A19CC841B000DDF29 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
-		F575462B19CC841B000DDF29 /* run.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = run.sh; sourceTree = "<group>"; };
 		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
 		F5782ADD1BBEFFD700663E78 /* FooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
 		F5782ADE1BBEFFD700663E78 /* FooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
@@ -50,6 +51,8 @@
 				F575460B19CC841B000DDF29 /* AppDelegate.m */,
 				F575461119CC841B000DDF29 /* build.xml */,
 				F575461219CC841B000DDF29 /* commands.xml */,
+				C5EFDCB71C2618A7007746A7 /* config.sh.debug */,
+				C5EFDCB81C2618A7007746A7 /* config.sh.release */,
 				F575461319CC841B000DDF29 /* FileManager.h */,
 				F575461419CC841B000DDF29 /* FileManager.m */,
 				F5782ADD1BBEFFD700663E78 /* FooterView.h */,
@@ -73,7 +76,6 @@
 				F575462819CC841B000DDF29 /* rd_main.m */,
 				F575462919CC841B000DDF29 /* README.md */,
 				F575462A19CC841B000DDF29 /* res */,
-				F575462B19CC841B000DDF29 /* run.sh */,
 				F575462C19CC841B000DDF29 /* src */,
 			);
 			sourceTree = "<group>";
