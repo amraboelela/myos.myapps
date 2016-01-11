@@ -18,7 +18,6 @@
 #import <UIKit/UIKit-private.h>
 #import "LauncherVC.h"
 #import "LauncherView.h"
-//#import "ApplicationsData.h"
 
 #define _kUIPageControlHeight       20
 

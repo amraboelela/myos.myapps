@@ -19,15 +19,15 @@
 
 @interface PageView : UIView {
 @package
-    NSMutableArray *_allApplications;
-    NSArray *_sortDescriptors;
+    //NSMutableArray *_allApplications;
+    //NSArray *_sortDescriptors;
     int _startingIndex;
-    NSMutableArray *_pageApplications;
+    //NSMutableArray *_pageApplications;
 }
 
-@property (nonatomic, retain) NSMutableArray *allApplications;
-@property (nonatomic, retain) NSArray *sortDescriptors;
-@property (nonatomic, retain) NSMutableArray *pageApplications;
+//@property (nonatomic, retain) NSMutableArray *allApplications;
+//@property (nonatomic, retain) NSArray *sortDescriptors;
+//@property (nonatomic, retain) NSMutableArray *pageApplications;
 
 - (id)initWithFrame:(CGRect)theFrame scrollView:(UIScrollView *)scrollView applications:(NSMutableArray *)applications pageNumber:(int)pageNumber;
 

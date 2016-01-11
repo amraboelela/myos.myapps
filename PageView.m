@@ -20,9 +20,9 @@
 
 @implementation PageView
 
-@synthesize allApplications=_allApplications;
-@synthesize sortDescriptors=_sortDescriptors;
-@synthesize pageApplications=_pageApplications;
+//@synthesize allApplications=_allApplications;
+//@synthesize sortDescriptors=_sortDescriptors;
+//@synthesize pageApplications=_pageApplications;
 
 #pragma mark - Life cycle
 
@@ -69,9 +69,9 @@
 
 - (void)dealloc
 {
-    [_allApplications release];
-    [_sortDescriptors release];
-    [_pageApplications release];
+    //[_allApplications release];
+    //[_sortDescriptors release];
+    //[_pageApplications release];
     [super dealloc];
 }
 
