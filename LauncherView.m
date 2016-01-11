@@ -45,7 +45,7 @@
         //DLog(@"numberOfPages: %d", numberOfPages);
         //for (int i=0; i<numberOfPages; i++) {
         pageView = [[PageView alloc]
-                    initWithFrame:CGRectMake(self.frame.origin.x + i * self.frame.size.width, self.frame.origin.y,
+                    initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y,
                                              self.frame.size.width, self.frame.size.height)
                     scrollView:self
                     applications:[_applications sortedArrayUsingDescriptors:scoreDescriptors]
