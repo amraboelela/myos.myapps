@@ -1,0 +1,4 @@
+
+export APP_TYPE=NATIVE_APP
+export CFLAGS=-DDEBUG
+
