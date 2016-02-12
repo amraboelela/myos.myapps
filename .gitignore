@@ -1,10 +1,11 @@
-myapps
+.DS_Store
 xcuserdata
 *.xccheckout
 *.so
 bin
 gen
 local.properties
-config.sh
-apps
-.DS_Store
+*_debug.sh
+*_release.sh
+*.o
+*.d
