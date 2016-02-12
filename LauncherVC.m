@@ -1,5 +1,5 @@
 /*
- Copyright © 2014-2015 myOS Group.
+ Copyright © 2014-2016 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -32,7 +32,7 @@
 
     CGRect frame = self.view.frame;//[[UIScreen mainScreen] bounds];
     //DLog(@"frame1: %@", NSStringFromCGRect(frame));
-    frame.size.height -= _kScreenFooter;
+    //frame.size.height -= _kScreenFooter;
     //DLog(@"frame2: %@", NSStringFromCGRect(frame));
     //self.view.frame = frame;
     //CGRect frame = self.view.frame;

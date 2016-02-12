@@ -1,2 +1,2 @@
-myos.android.myapps
-===================
+myos.myapps
+===========

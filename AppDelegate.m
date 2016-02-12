@@ -1,5 +1,5 @@
 /*
- Copyright © 2014-2015 myOS Group.
+ Copyright © 2014-2016 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -17,7 +17,7 @@
 
 #import "AppDelegate.h"
 #import "FileManager.h"
-#import "FooterView.h"
+//#import "FooterView.h"
 
 @implementation AppDelegate
 
@@ -83,11 +83,11 @@
     //DLog();
     //DLog(@"self: %@", self);
     
-    FooterView *footerView = [[FooterView alloc] init];
+    /*FooterView *footerView = [[FooterView alloc] init];
     footerView.delegate = self;
     [_window addSubview:footerView];
     //DLog();
-    [footerView release];
+    [footerView release];*/
 }
 
 @end

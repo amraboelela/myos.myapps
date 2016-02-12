@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		C5EFDCB71C2618A7007746A7 /* config.sh.debug */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.sh.debug; sourceTree = "<group>"; };
-		C5EFDCB81C2618A7007746A7 /* config.sh.release */ = {isa = PBXFileReference; lastKnownFileType = text; path = config.sh.release; sourceTree = "<group>"; };
+		6347A1961C6D463000B0A9B4 /* targets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = targets; sourceTree = "<group>"; };
 		F533FEE41A11839700627384 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
 		F575460919CC841B000DDF29 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AndroidManifest.xml; sourceTree = "<group>"; };
 		F575460A19CC841B000DDF29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,7 +25,6 @@
 		F575461E19CC841B000DDF29 /* LoadingScreenVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadingScreenVC.h; sourceTree = "<group>"; };
 		F575461F19CC841B000DDF29 /* LoadingScreenVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadingScreenVC.m; sourceTree = "<group>"; };
 		F575462119CC841B000DDF29 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		F575462319CC841B000DDF29 /* obj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = obj; sourceTree = "<group>"; };
 		F575462419CC841B000DDF29 /* PageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageView.h; sourceTree = "<group>"; };
 		F575462519CC841B000DDF29 /* PageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PageView.m; sourceTree = "<group>"; };
 		F575462619CC841B000DDF29 /* proguard-project.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "proguard-project.txt"; sourceTree = "<group>"; };
@@ -35,10 +33,7 @@
 		F575462919CC841B000DDF29 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		F575462A19CC841B000DDF29 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		F575462C19CC841B000DDF29 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
-		F5782ADD1BBEFFD700663E78 /* FooterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FooterView.h; sourceTree = "<group>"; };
-		F5782ADE1BBEFFD700663E78 /* FooterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FooterView.m; sourceTree = "<group>"; };
 		F58B52391B5DA53F00E7F9D8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F5F5F66F1B57246400285921 /* NAObj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NAObj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -51,12 +46,8 @@
 				F575460B19CC841B000DDF29 /* AppDelegate.m */,
 				F575461119CC841B000DDF29 /* build.xml */,
 				F575461219CC841B000DDF29 /* commands.xml */,
-				C5EFDCB71C2618A7007746A7 /* config.sh.debug */,
-				C5EFDCB81C2618A7007746A7 /* config.sh.release */,
 				F575461319CC841B000DDF29 /* FileManager.h */,
 				F575461419CC841B000DDF29 /* FileManager.m */,
-				F5782ADD1BBEFFD700663E78 /* FooterView.h */,
-				F5782ADE1BBEFFD700663E78 /* FooterView.m */,
 				F575461719CC841B000DDF29 /* jni */,
 				F575461819CC841B000DDF29 /* LauncherVC.h */,
 				F575461919CC841B000DDF29 /* LauncherVC.m */,
@@ -65,10 +56,8 @@
 				F575461D19CC841B000DDF29 /* libs */,
 				F575461E19CC841B000DDF29 /* LoadingScreenVC.h */,
 				F575461F19CC841B000DDF29 /* LoadingScreenVC.m */,
-				F5F5F66F1B57246400285921 /* NAObj */,
 				F575462119CC841B000DDF29 /* Makefile */,
 				F58B52391B5DA53F00E7F9D8 /* main.m */,
-				F575462319CC841B000DDF29 /* obj */,
 				F575462419CC841B000DDF29 /* PageView.h */,
 				F575462519CC841B000DDF29 /* PageView.m */,
 				F575462619CC841B000DDF29 /* proguard-project.txt */,
@@ -77,6 +66,7 @@
 				F575462919CC841B000DDF29 /* README.md */,
 				F575462A19CC841B000DDF29 /* res */,
 				F575462C19CC841B000DDF29 /* src */,
+				6347A1961C6D463000B0A9B4 /* targets */,
 			);
 			sourceTree = "<group>";
 		};
