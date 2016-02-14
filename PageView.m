@@ -1,5 +1,5 @@
 /*
- Copyright © 2014-2015 myOS Group.
+ Copyright © 2014-2016 myOS Group.
  
  This application is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -44,7 +44,7 @@
             //DLog(@"application.yLocation: %d", application.yLocation);
             UIApplicationIcon *icon;
             if (pageNumber == 0) {
-                icon = application.homeIcon;
+                icon = application.homePageIcon;
                 icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (5-yLocation),
                                         icon.frame.size.width, icon.frame.size.height);
             } else {
