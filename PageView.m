@@ -17,12 +17,9 @@
 
 #import "PageView.h"
 #import <UIKit/UIKit-private.h>
+#import <UIKit/UIChildApplicationProxy.h>
 
 @implementation PageView
-
-//@synthesize allApplications=_allApplications;
-//@synthesize sortDescriptors=_sortDescriptors;
-//@synthesize pageApplications=_pageApplications;
 
 #pragma mark - Life cycle
 
