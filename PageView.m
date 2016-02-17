@@ -66,9 +66,6 @@
 
 - (void)dealloc
 {
-    //[_allApplications release];
-    //[_sortDescriptors release];
-    //[_pageApplications release];
     [super dealloc];
 }
 
