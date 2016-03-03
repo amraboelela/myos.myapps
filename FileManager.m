@@ -15,25 +15,9 @@
  Amr Aboelela <amraboelela@gmail.com>
  */
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit-private.h>
 #import <UIKit/UIChildApplicationProxy.h>
 #import <IOKit/IOKit.h>
 #import "FileManager.h"
-
-/*
-static NSString *_myosPath = nil;
-
-#pragma mark - Static functions
-
-static NSString *_FileManagerMyOSPath()
-{
-    if (!_myosPath) {
-        _myosPath = IOPipeRunCommand(@"echo ${MYOS_PATH}", YES);
-        _myosPath = [_myosPath substringToIndex:_myosPath.length-1];
-    }
-    return _myosPath;
-}*/
 
 #pragma mark - Public functions
 

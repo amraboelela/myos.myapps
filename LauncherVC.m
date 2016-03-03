@@ -39,10 +39,10 @@
     self.view = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Wallpaper.png"]] autorelease];
     self.view.frame = frame;
     
-    NSMutableArray *applications = FileManagerInstantiateApps();
+    //NSMutableArray *applications = FileManagerInstantiateApps();
     _launcherView = [[LauncherView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height - _kUIPageControlHeight)];
     _launcherView.delegate = self;
-    _launcherView.applications = applications;
+    //_launcherView.applications = applications;
     
     //DLog(@"numberOfPages: %d", [_launcherView numberOfPages]);
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - _kUIPageControlHeight,
@@ -55,7 +55,7 @@
                     action:@selector(pageControlValueChanged:)
           forControlEvents:UIControlEventValueChanged];
     
-    [applications release];
+    //[applications release];
     [self.view addSubview:_launcherView];
     //[pageControl release];
     //[launcherView release];
