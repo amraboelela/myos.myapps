@@ -44,7 +44,7 @@
             //DLog(@"application.yLocation: %d", application.yLocation);
             UIApplicationIcon *icon;
             if (pageNumber == 0) {
-                icon = application.homeIcon;
+                icon = application.homePageIcon;
                 icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (5-yLocation),
                                         icon.frame.size.width, icon.frame.size.height);
             } else {
