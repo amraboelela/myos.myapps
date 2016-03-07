@@ -41,8 +41,9 @@
         PageView *pageView = nil;
         self.contentSize = CGSizeMake(theFrame.size.width * numberOfPages, theFrame.size.height);
         self.pagingEnabled = YES;
+        int maxNumberOfAppsAtHome = MIN(PageViewNumberOfAppsPerPage(), _applications.count);
         NSArray *homeApplications = [[[_applications sortedArrayUsingDescriptors:scoreDescriptors] subarrayWithRange:
-                                     NSMakeRange(0,PageViewNumberOfAppsPerPage())] sortedArrayUsingDescriptors:scoreDescriptors];
+                                     NSMakeRange(0,maxNumberOfAppsAtHome)] sortedArrayUsingDescriptors:scoreDescriptors];
         pageView = [[PageView alloc]
                     initWithFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y,
                                              self.frame.size.width, self.frame.size.height)
