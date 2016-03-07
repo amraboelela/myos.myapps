@@ -45,14 +45,15 @@
             UIApplicationIcon *icon;
             if (pageNumber == 0) {
                 icon = application.homePageIcon;
-                icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (5-yLocation),
-                                        icon.frame.size.width, icon.frame.size.height);
+                //icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * (5-yLocation),
+                //                        icon.frame.size.width, icon.frame.size.height);
             } else {
                 icon = application->_applicationIcon;
-                icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
-                                        icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
-                    
             }
+            icon.frame = CGRectMake(_kIconWidth * xLocation, _kIconHeight * yLocation,
+                                    icon.frame.size.width, icon.frame.size.height); // icon.frame.size.height,
+            
+            //}
             //DLog(@"icon.frame: %@", NSStringFromCGRect(icon.frame));
             icon.parentScrollView = scrollView;
             [self addSubview:icon];
